@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quiz de Práctica - Lengua 6º Primaria</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .quiz-info {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid #28a745;
+        }
+
+        .quiz-info h3 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .question-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #17a2b8;
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+        }
+
+        .question-number {
+            background: #17a2b8;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+
+        .exercise-text {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            border-color: #17a2b8;
+            background: #f0f8ff;
+        }
+
+        .option.selected {
+            border-color: #17a2b8;
+            background: #e3f2fd;
+        }
+
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .explanation {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation h4 {
+            color: #856404;
+            margin-bottom: 8px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #138496;
+        }
+
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #17a2b8, #20c997);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        .results {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .final-score {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .score-excellent {
+            color: #28a745;
+        }
+
+        .score-good {
+            color: #ffc107;
+        }
+
+        .score-needs-improvement {
+            color: #dc3545;
+        }
+
+        .restart-btn {
+            background: #6f42c1;
+            margin-top: 20px;
+        }
+
+        .restart-btn:hover {
+            background: #5a32a3;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .controls {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>✏️ Quiz de Práctica</h1>
+<p>Lengua Española - 6º Primaria</p>
+</div>
+<div class="quiz-info">
+<h3>📝 Información del Quiz</h3>
+<p><strong>Total de preguntas:</strong> 50 ejercicios prácticos</p>
+<p><strong>Temas:</strong> Análisis sintáctico, métrica, figuras literarias, ortografía práctica</p>
+<p><strong>Tiempo:</strong> Sin límite de tiempo</p>
+<p><strong>Objetivo:</strong> Aplicar los conocimientos teóricos en ejercicios reales</p>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="score-display">
+<span id="currentQuestion">1</span> de <span id="totalQuestions">50</span> | 
+            Puntuación: <span id="currentScore">0</span>/<span id="maxScore">50</span>
+</div>
+<!-- Preguntas del Quiz -->
+<div class="question-container active" data-question="1">
+<div class="question-number">Ejercicio 1</div>
+<div class="question">Analiza sintácticamente la siguiente oración:</div>
+<div class="exercise-text">"Los niños pequeños jugaron en el parque ayer."</div>
+<div class="question">¿Cuál es el sujeto de la oración?</div>
+<div class="options">
+<div class="option" data-answer="a">Los niños</div>
+<div class="option" data-answer="b">Los niños pequeños</div>
+<div class="option" data-answer="c">niños pequeños</div>
+<div class="option" data-answer="d">jugaron</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>El sujeto completo es "Los niños pequeños". Incluye el determinante "Los", el núcleo "niños" y el complemento "pequeños".</p>
+</div>
+</div>
+<div class="question-container" data-question="2">
+<div class="question-number">Ejercicio 2</div>
+<div class="question">En la oración anterior, ¿cuál es el complemento circunstancial de lugar?</div>
+<div class="exercise-text">"Los niños pequeños jugaron en el parque ayer."</div>
+<div class="options">
+<div class="option" data-answer="a">ayer</div>
+<div class="option" data-answer="b">en el parque</div>
+<div class="option" data-answer="c">jugaron</div>
+<div class="option" data-answer="d">pequeños</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>"En el parque" es CC de lugar (responde a ¿dónde jugaron?). "Ayer" es CC de tiempo.</p>
+</div>
+</div>
+<div class="question-container" data-question="3">
+<div class="question-number">Ejercicio 3</div>
+<div class="question">Separa en raíz y desinencia el verbo:</div>
+<div class="exercise-text">"cantábamos"</div>
+<div class="options">
+<div class="option" data-answer="a">cant- (raíz) + -ábamos (desinencia)</div>
+<div class="option" data-answer="b">canta- (raíz) + -bamos (desinencia)</div>
+<div class="option" data-answer="c">cantaba- (raíz) + -mos (desinencia)</div>
+<div class="option" data-answer="d">cantábam- (raíz) + -os (desinencia)</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>RAÍZ: cant- (significado principal). DESINENCIA: -ábamos (1ª persona plural, pretérito imperfecto, indicativo).</p>
+</div>
+</div>
+<div class="question-container" data-question="4">
+<div class="question-number">Ejercicio 4</div>
+<div class="question">Indica si es DIPTONGO o HIATO:</div>
+<div class="exercise-text">"cielo"</div>
+<div class="options">
+<div class="option" data-answer="a">DIPTONGO</div>
+<div class="option" data-answer="b">HIATO</div>
+<div class="option" data-answer="c">No tiene vocales juntas</div>
+<div class="option" data-answer="d">Es una palabra simple</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>DIPTONGO: "ie" = vocal cerrada (i) + vocal abierta (e) van juntas en la misma sílaba: cie-lo.</p>
+</div>
+</div>
+<div class="question-container" data-question="5">
+<div class="question-number">Ejercicio 5</div>
+<div class="question">Indica si es DIPTONGO o HIATO:</div>
+<div class="exercise-text">"país"</div>
+<div class="options">
+<div class="option" data-answer="a">DIPTONGO</div>
+<div class="option" data-answer="b">HIATO</div>
+<div class="option" data-answer="c">No tiene vocales juntas</div>
+<div class="option" data-answer="d">Es una palabra simple</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>HIATO: la "í" tiene tilde, por lo que se separa de la "a": pa-ís. Truco: si i/u tiene tilde → HIATO seguro.</p>
+</div>
+</div>
+<div class="question-container" data-question="6">
+<div class="question-number">Ejercicio 6</div>
+<div class="question">Completa con la forma correcta:</div>
+<div class="exercise-text">"____ hermano estudia mucho."</div>
+<div class="options">
+<div class="option" data-answer="a">TÚ</div>
+<div class="option" data-answer="b">TU</div>
+<div class="option" data-answer="c">Ambas son correctas</div>
+<div class="option" data-answer="d">Ninguna es correcta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>TU (sin tilde) = determinante que acompaña a "hermano". TÚ (con tilde) = pronombre.</p>
+</div>
+</div>
+<div class="question-container" data-question="7">
+<div class="question-number">Ejercicio 7</div>
+<div class="question">Completa con la forma correcta:</div>
+<div class="exercise-text">"____ vienes conmigo al cine?"</div>
+<div class="options">
+<div class="option" data-answer="a">TÚ</div>
+<div class="option" data-answer="b">TU</div>
+<div class="option" data-answer="c">Ambas son correctas</div>
+<div class="option" data-answer="d">Ninguna es correcta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>TÚ (con tilde) = pronombre personal. Sustituye al nombre de la persona.</p>
+</div>
+</div>
+<div class="question-container" data-question="8">
+<div class="question-number">Ejercicio 8</div>
+<div class="question">Cuenta las sílabas métricas del verso:</div>
+<div class="exercise-text">"En el jardín de mi casa"</div>
+<div class="options">
+<div class="option" data-answer="a">7 sílabas</div>
+<div class="option" data-answer="b">8 sílabas</div>
+<div class="option" data-answer="c">6 sílabas</div>
+<div class="option" data-answer="d">9 sílabas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>En-el-jar-dín-de-mi-ca-sa = 8 sílabas. Hay sinalefa: "En_el" y "de_mi" se unen. Palabra llana al final (no se suma ni resta).</p>
+</div>
+</div>
+<div class="question-container" data-question="9">
+<div class="question-number">Ejercicio 9</div>
+<div class="question">¿Qué tipo de rima tienen estos versos?</div>
+<div class="exercise-text">
+                "En el silencio de la noche clara<br/>
+                brillaba la luna con luz extraña"
+            </div>
+<div class="options">
+<div class="option" data-answer="a">Rima consonante</div>
+<div class="option" data-answer="b">Rima asonante</div>
+<div class="option" data-answer="c">No riman</div>
+<div class="option" data-answer="d">Rima perfecta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Rima ASONANTE: clara/extraña. Solo coinciden las vocales "a-a" desde la vocal acentuada.</p>
+</div>
+</div>
+<div class="question-container" data-question="10">
+<div class="question-number">Ejercicio 10</div>
+<div class="question">Identifica la figura literaria:</div>
+<div class="exercise-text">"Sus ojos son dos estrellas brillantes"</div>
+<div class="options">
+<div class="option" data-answer="a">Comparación</div>
+<div class="option" data-answer="b">Metáfora</div>
+<div class="option" data-answer="c">Personificación</div>
+<div class="option" data-answer="d">Hipérbole</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>METÁFORA: dice que los ojos SON estrellas (no usa "como"). Identifica directamente una cosa con otra.</p>
+</div>
+</div>
+<div class="question-container" data-question="11">
+<div class="question-number">Ejercicio 11</div>
+<div class="question">Identifica la figura literaria:</div>
+<div class="exercise-text">"Corre como el viento por el campo"</div>
+<div class="options">
+<div class="option" data-answer="a">Comparación</div>
+<div class="option" data-answer="b">Metáfora</div>
+<div class="option" data-answer="c">Personificación</div>
+<div class="option" data-answer="d">Hipérbole</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>COMPARACIÓN: usa "como" para comparar la velocidad de correr con la del viento.</p>
+</div>
+</div>
+<div class="question-container" data-question="12">
+<div class="question-number">Ejercicio 12</div>
+<div class="question">Identifica la figura literaria:</div>
+<div class="exercise-text">"El sol me guiñó un ojo al amanecer"</div>
+<div class="options">
+<div class="option" data-answer="a">Comparación</div>
+<div class="option" data-answer="b">Metáfora</div>
+<div class="option" data-answer="c">Personificación</div>
+<div class="option" data-answer="d">Hipérbole</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>PERSONIFICACIÓN: da características humanas (guiñar un ojo) al sol, que es un objeto.</p>
+</div>
+</div>
+<div class="question-container" data-question="13">
+<div class="question-number">Ejercicio 13</div>
+<div class="question">¿Cuál es la palabra trampa correcta?</div>
+<div class="exercise-text">"¡____! Me he hecho daño en el dedo."</div>
+<div class="options">
+<div class="option" data-answer="a">AY</div>
+<div class="option" data-answer="b">HAY</div>
+<div class="option" data-answer="c">AHÍ</div>
+<div class="option" data-answer="d">HAYA</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>¡AY! = interjección que expresa dolor o susto. HAY = cantidad, AHÍ = lugar.</p>
+</div>
+</div>
+<div class="question-container" data-question="14">
+<div class="question-number">Ejercicio 14</div>
+<div class="question">¿Cuál es la palabra trampa correcta?</div>
+<div class="exercise-text">"En la mesa ____ tres libros."</div>
+<div class="options">
+<div class="option" data-answer="a">AY</div>
+<div class="option" data-answer="b">HAY</div>
+<div class="option" data-answer="c">AHÍ</div>
+<div class="option" data-answer="d">HAYA</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>HAY = verbo haber que indica cantidad o existencia. "Hay tres libros" = existen tres libros.</p>
+</div>
+</div>
+<div class="question-container" data-question="15">
+<div class="question-number">Ejercicio 15</div>
+<div class="question">Analiza morfológicamente "cantábamos":</div>
+<div class="exercise-text">"Nosotros cantábamos en el coro."</div>
+<div class="question">¿Qué persona y número tiene?</div>
+<div class="options">
+<div class="option" data-answer="a">1ª persona singular</div>
+<div class="option" data-answer="b">1ª persona plural</div>
+<div class="option" data-answer="c">3ª persona plural</div>
+<div class="option" data-answer="d">2ª persona plural</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>"Cantábamos" = 1ª persona plural (nosotros), pretérito imperfecto, modo indicativo.</p>
+</div>
+</div>
+<div class="question-container" data-question="16">
+<div class="question-number">Ejercicio 16</div>
+<div class="question">¿Qué tipo de palabra es "banco" en estos ejemplos?</div>
+<div class="exercise-text">
+                "1. Me senté en el banco del parque.<br/>
+                2. Fui al banco a sacar dinero."
+            </div>
+<div class="options">
+<div class="option" data-answer="a">Sinónimas</div>
+<div class="option" data-answer="b">Polisémicas</div>
+<div class="option" data-answer="c">Homófonas</div>
+<div class="option" data-answer="d">Antónimas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>POLISÉMICAS: una palabra (banco) con varios significados relacionados (asiento/entidad financiera).</p>
+</div>
+</div>
+<div class="question-container" data-question="17">
+<div class="question-number">Ejercicio 17</div>
+<div class="question">¿Qué tipo de palabras son "hola" y "ola"?</div>
+<div class="exercise-text">
+                "1. ¡Hola! ¿Cómo estás?<br/>
+                2. La ola del mar era enorme."
+            </div>
+<div class="options">
+<div class="option" data-answer="a">Polisémicas</div>
+<div class="option" data-answer="b">Homógrafas</div>
+<div class="option" data-answer="c">Homófonas</div>
+<div class="option" data-answer="d">Sinónimas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>HOMÓFONAS: suenan igual pero se escriben diferente y tienen significados distintos.</p>
+</div>
+</div>
+<div class="question-container" data-question="18">
+<div class="question-number">Ejercicio 18</div>
+<div class="question">En la oración, ¿qué función tiene "muy inteligente"?</div>
+<div class="exercise-text">"María es muy inteligente."</div>
+<div class="options">
+<div class="option" data-answer="a">Complemento Directo (CD)</div>
+<div class="option" data-answer="b">Atributo</div>
+<div class="option" data-answer="c">Complemento Indirecto (CI)</div>
+<div class="option" data-answer="d">Complemento Circunstancial (CC)</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ATRIBUTO: el verbo "es" es copulativo, por lo que "muy inteligente" es atributo, no CD.</p>
+</div>
+</div>
+<div class="question-container" data-question="19">
+<div class="question-number">Ejercicio 19</div>
+<div class="question">¿Cuántas sílabas métricas tiene este verso?</div>
+<div class="exercise-text">"Amor eterno y verdadero"</div>
+<div class="options">
+<div class="option" data-answer="a">7 sílabas</div>
+<div class="option" data-answer="b">8 sílabas</div>
+<div class="option" data-answer="c">9 sílabas</div>
+<div class="option" data-answer="d">6 sílabas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>A-mor-e-ter-no-y-ver-da-de-ro = 10 sílabas normales. Con sinalefa "mor_e" y "no_y" = 8 sílabas métricas.</p>
+</div>
+</div>
+<div class="question-container" data-question="20">
+<div class="question-number">Ejercicio 20</div>
+<div class="question">¿Qué tipo de estrofa forman estos versos?</div>
+<div class="exercise-text">
+                "En el jardín de mi casa (8 sílabas)<br/>
+                florecen rosas hermosas (8 sílabas)<br/>
+                que perfuman la mañana (8 sílabas)<br/>
+                con fragancias deliciosas (8 sílabas)"
+            </div>
+<div class="options">
+<div class="option" data-answer="a">Cuarteto</div>
+<div class="option" data-answer="b">Redondilla</div>
+<div class="option" data-answer="c">Cuarteta</div>
+<div class="option" data-answer="d">Serventesio</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>4 versos de arte menor (8 sílabas) con rima abab = CUARTETA. Si fuera ABBA sería redondilla.</p>
+</div>
+</div>
+<div class="question-container" data-question="21">
+<div class="question-number">Ejercicio 21</div>
+<div class="question">Identifica el tipo de adverbio:</div>
+<div class="exercise-text">"Llegamos ayer por la tarde."</div>
+<div class="options">
+<div class="option" data-answer="a">Adverbio de lugar</div>
+<div class="option" data-answer="b">Adverbio de tiempo</div>
+<div class="option" data-answer="c">Adverbio de modo</div>
+<div class="option" data-answer="d">Adverbio de cantidad</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>"Ayer" es adverbio de TIEMPO (responde a ¿cuándo llegamos?).</p>
+</div>
+</div>
+<div class="question-container" data-question="22">
+<div class="question-number">Ejercicio 22</div>
+<div class="question">¿Es determinante o pronombre?</div>
+<div class="exercise-text">"Esa casa es muy bonita."</div>
+<div class="options">
+<div class="option" data-answer="a">Determinante</div>
+<div class="option" data-answer="b">Pronombre</div>
+<div class="option" data-answer="c">Adjetivo</div>
+<div class="option" data-answer="d">Sustantivo</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>DETERMINANTE: "Esa" acompaña al nombre "casa". CON nombre = determinante.</p>
+</div>
+</div>
+<div class="question-container" data-question="23">
+<div class="question-number">Ejercicio 23</div>
+<div class="question">¿Es determinante o pronombre?</div>
+<div class="exercise-text">"Ésa me gusta más."</div>
+<div class="options">
+<div class="option" data-answer="a">Determinante</div>
+<div class="option" data-answer="b">Pronombre</div>
+<div class="option" data-answer="c">Adjetivo</div>
+<div class="option" data-answer="d">Sustantivo</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>PRONOMBRE: "Ésa" sustituye al nombre (no acompaña a ningún nombre). SIN nombre = pronombre.</p>
+</div>
+</div>
+<div class="question-container" data-question="24">
+<div class="question-number">Ejercicio 24</div>
+<div class="question">¿Qué familia de palabras forman?</div>
+<div class="exercise-text">"pan - panadero - panadería - empanar"</div>
+<div class="options">
+<div class="option" data-answer="a">Familia de PAN</div>
+<div class="option" data-answer="b">Familia de PANADERO</div>
+<div class="option" data-answer="c">No forman familia</div>
+<div class="option" data-answer="d">Son sinónimas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Familia de PAN: todas comparten la raíz "pan-" y tienen significado relacionado con el pan.</p>
+</div>
+</div>
+<div class="question-container" data-question="25">
+<div class="question-number">Ejercicio 25</div>
+<div class="question">Completa con ECHO o HECHO:</div>
+<div class="exercise-text">"Siempre ____ sal a la comida."</div>
+<div class="options">
+<div class="option" data-answer="a">ECHO</div>
+<div class="option" data-answer="b">HECHO</div>
+<div class="option" data-answer="c">Ambas son correctas</div>
+<div class="option" data-answer="d">Ninguna es correcta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ECHO (del verbo echar, sin H). "Lo que se echa, pierde la hache". HECHO es del verbo hacer.</p>
+</div>
+</div>
+<div class="question-container" data-question="26">
+<div class="question-number">Ejercicio 26</div>
+<div class="question">Completa con HABER o A VER:</div>
+<div class="exercise-text">"Vamos ____ esa película."</div>
+<div class="options">
+<div class="option" data-answer="a">HABER</div>
+<div class="option" data-answer="b">A VER</div>
+<div class="option" data-answer="c">Ambas son correctas</div>
+<div class="option" data-answer="d">Ninguna es correcta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>A VER (preposición + verbo ver). HABER es verbo auxiliar para tiempos compuestos.</p>
+</div>
+</div>
+<div class="question-container" data-question="27">
+<div class="question-number">Ejercicio 27</div>
+<div class="question">¿Qué grado tiene el adjetivo?</div>
+<div class="exercise-text">"Pedro es más alto que Juan."</div>
+<div class="options">
+<div class="option" data-answer="a">Grado positivo</div>
+<div class="option" data-answer="b">Grado comparativo</div>
+<div class="option" data-answer="c">Grado superlativo</div>
+<div class="option" data-answer="d">No tiene grado</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Grado COMPARATIVO: compara la altura de Pedro con la de Juan usando "más... que".</p>
+</div>
+</div>
+<div class="question-container" data-question="28">
+<div class="question-number">Ejercicio 28</div>
+<div class="question">¿Qué grado tiene el adjetivo?</div>
+<div class="exercise-text">"María es altísima."</div>
+<div class="options">
+<div class="option" data-answer="a">Grado positivo</div>
+<div class="option" data-answer="b">Grado comparativo</div>
+<div class="option" data-answer="c">Grado superlativo</div>
+<div class="option" data-answer="d">No tiene grado</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Grado SUPERLATIVO: expresa la cualidad en grado máximo. "Altísima" = muy alta.</p>
+</div>
+</div>
+<div class="question-container" data-question="29">
+<div class="question-number">Ejercicio 29</div>
+<div class="question">Identifica la figura literaria:</div>
+<div class="exercise-text">"Te lo he dicho mil millones de veces"</div>
+<div class="options">
+<div class="option" data-answer="a">Comparación</div>
+<div class="option" data-answer="b">Metáfora</div>
+<div class="option" data-answer="c">Personificación</div>
+<div class="option" data-answer="d">Hipérbole</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>HIPÉRBOLE: exageración imposible. Es físicamente imposible decir algo mil millones de veces.</p>
+</div>
+</div>
+<div class="question-container" data-question="30">
+<div class="question-number">Ejercicio 30</div>
+<div class="question">Identifica la figura literaria:</div>
+<div class="exercise-text">"Por ti suspiro, por ti lloro, por ti vivo"</div>
+<div class="options">
+<div class="option" data-answer="a">Anáfora</div>
+<div class="option" data-answer="b">Metáfora</div>
+<div class="option" data-answer="c">Aliteración</div>
+<div class="option" data-answer="d">Elipsis</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ANÁFORA: repetición de "por ti" al inicio de cada parte del verso.</p>
+</div>
+</div>
+<div class="question-container" data-question="31">
+<div class="question-number">Ejercicio 31</div>
+<div class="question">¿Qué tipo de rima tienen estos versos?</div>
+<div class="exercise-text">
+                "En la noche serena y fría<br/>
+                brillaba la luna llena"
+            </div>
+<div class="options">
+<div class="option" data-answer="a">Rima consonante</div>
+<div class="option" data-answer="b">Rima asonante</div>
+<div class="option" data-answer="c">No riman</div>
+<div class="option" data-answer="d">Rima perfecta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Rima ASONANTE: fría/llena. Solo coinciden las vocales "í-a" y "e-a" desde la vocal acentuada.</p>
+</div>
+</div>
+<div class="question-container" data-question="32">
+<div class="question-number">Ejercicio 32</div>
+<div class="question">¿Qué tipo de sustantivo es "rebaño"?</div>
+<div class="exercise-text">"El rebaño de ovejas pastaba en el campo."</div>
+<div class="options">
+<div class="option" data-answer="a">Individual</div>
+<div class="option" data-answer="b">Colectivo</div>
+<div class="option" data-answer="c">Abstracto</div>
+<div class="option" data-answer="d">Propio</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>COLECTIVO: "rebaño" nombra un conjunto de animales (ovejas). Individual sería "oveja".</p>
+</div>
+</div>
+<div class="question-container" data-question="33">
+<div class="question-number">Ejercicio 33</div>
+<div class="question">¿Qué tipo de sustantivo es "amor"?</div>
+<div class="exercise-text">"El amor es un sentimiento hermoso."</div>
+<div class="options">
+<div class="option" data-answer="a">Concreto</div>
+<div class="option" data-answer="b">Abstracto</div>
+<div class="option" data-answer="c">Individual</div>
+<div class="option" data-answer="d">Colectivo</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ABSTRACTO: "amor" no se puede tocar ni ver físicamente. Es un sentimiento. Concreto sería "mesa", "libro".</p>
+</div>
+</div>
+<div class="question-container" data-question="34">
+<div class="question-number">Ejercicio 34</div>
+<div class="question">Identifica la onomatopeya:</div>
+<div class="exercise-text">"¡Pum! ¡Pam! Sonaron los fuegos artificiales."</div>
+<div class="options">
+<div class="option" data-answer="a">¡Pum! ¡Pam!</div>
+<div class="option" data-answer="b">Sonaron</div>
+<div class="option" data-answer="c">fuegos artificiales</div>
+<div class="option" data-answer="d">No hay onomatopeya</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ONOMATOPEYA: "¡Pum! ¡Pam!" imitan el sonido de los fuegos artificiales.</p>
+</div>
+</div>
+<div class="question-container" data-question="35">
+<div class="question-number">Ejercicio 35</div>
+<div class="question">¿Cuál es el hiperónimo?</div>
+<div class="exercise-text">"rosa - tulipán - margarita - clavel"</div>
+<div class="options">
+<div class="option" data-answer="a">rosa</div>
+<div class="option" data-answer="b">flor</div>
+<div class="option" data-answer="c">tulipán</div>
+<div class="option" data-answer="d">planta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>HIPERÓNIMO: "flor" es la palabra general que incluye a todas las específicas (rosa, tulipán, margarita, clavel).</p>
+</div>
+</div>
+<div class="question-container" data-question="36">
+<div class="question-number">Ejercicio 36</div>
+<div class="question">Separa en sílabas métricas:</div>
+<div class="exercise-text">"la hierba verde"</div>
+<div class="options">
+<div class="option" data-answer="a">la - hier - ba - ver - de (5 sílabas)</div>
+<div class="option" data-answer="b">la_hier - ba - ver - de (4 sílabas)</div>
+<div class="option" data-answer="c">la - hier - ba_ver - de (4 sílabas)</div>
+<div class="option" data-answer="d">la - hier - ba - ver - de (5 sílabas sin sinalefa)</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Sinalefas: "la_hierba" (la H no impide sinalefa) y "ba_verde" = la_hier-ba_ver-de (4 sílabas métricas).</p>
+</div>
+</div>
+<div class="question-container" data-question="37">
+<div class="question-number">Ejercicio 37</div>
+<div class="question">¿Qué conjugación es el verbo "escribir"?</div>
+<div class="exercise-text">"Los niños escriben cartas."</div>
+<div class="options">
+<div class="option" data-answer="a">1ª conjugación (-ar)</div>
+<div class="option" data-answer="b">2ª conjugación (-er)</div>
+<div class="option" data-answer="c">3ª conjugación (-ir)</div>
+<div class="option" data-answer="d">No tiene conjugación</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>3ª CONJUGACIÓN: "escribir" termina en -ir. 1ª (-ar), 2ª (-er), 3ª (-ir).</p>
+</div>
+</div>
+<div class="question-container" data-question="38">
+<div class="question-number">Ejercicio 38</div>
+<div class="question">Identifica la elipsis:</div>
+<div class="exercise-text">"Pedro estudia matemáticas; Ana, lengua."</div>
+<div class="options">
+<div class="option" data-answer="a">Se omite "estudia" después de "Ana"</div>
+<div class="option" data-answer="b">Se omite "Pedro"</div>
+<div class="option" data-answer="c">Se omite "matemáticas"</div>
+<div class="option" data-answer="d">No hay elipsis</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ELIPSIS: se omite "estudia" después de "Ana". La frase completa sería "Ana estudia lengua".</p>
+</div>
+</div>
+<div class="question-container" data-question="39">
+<div class="question-number">Ejercicio 39</div>
+<div class="question">¿Qué tipo de antonimia es?</div>
+<div class="exercise-text">"comprar - vender"</div>
+<div class="options">
+<div class="option" data-answer="a">Gradual</div>
+<div class="option" data-answer="b">Recíproca</div>
+<div class="option" data-answer="c">Complementaria</div>
+<div class="option" data-answer="d">No son antónimas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Antonimia RECÍPROCA: una acción implica la otra. Si alguien compra, otro vende.</p>
+</div>
+</div>
+<div class="question-container" data-question="40">
+<div class="question-number">Ejercicio 40</div>
+<div class="question">¿Qué tipo de antonimia es?</div>
+<div class="exercise-text">"vivo - muerto"</div>
+<div class="options">
+<div class="option" data-answer="a">Gradual</div>
+<div class="option" data-answer="b">Recíproca</div>
+<div class="option" data-answer="c">Complementaria</div>
+<div class="option" data-answer="d">No son antónimas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Antonimia COMPLEMENTARIA: se excluyen mutuamente. No puede estar vivo y muerto a la vez.</p>
+</div>
+</div>
+<div class="question-container" data-question="41">
+<div class="question-number">Ejercicio 41</div>
+<div class="question">Indica si es DIPTONGO o HIATO:</div>
+<div class="exercise-text">"ciudad"</div>
+<div class="options">
+<div class="option" data-answer="a">DIPTONGO</div>
+<div class="option" data-answer="b">HIATO</div>
+<div class="option" data-answer="c">No tiene vocales juntas</div>
+<div class="option" data-answer="d">Es una palabra simple</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>DIPTONGO: "iu" = vocal cerrada (i) + vocal cerrada (u) van juntas: ciu-dad.</p>
+</div>
+</div>
+<div class="question-container" data-question="42">
+<div class="question-number">Ejercicio 42</div>
+<div class="question">Indica si es DIPTONGO o HIATO:</div>
+<div class="exercise-text">"poeta"</div>
+<div class="options">
+<div class="option" data-answer="a">DIPTONGO</div>
+<div class="option" data-answer="b">HIATO</div>
+<div class="option" data-answer="c">No tiene vocales juntas</div>
+<div class="option" data-answer="d">Es una palabra simple</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>HIATO: "oe" = vocal abierta (o) + vocal abierta (e) se separan: po-e-ta.</p>
+</div>
+</div>
+<div class="question-container" data-question="43">
+<div class="question-number">Ejercicio 43</div>
+<div class="question">¿Cuántas sílabas métricas tiene?</div>
+<div class="exercise-text">"Bajo el árbol"</div>
+<div class="options">
+<div class="option" data-answer="a">4 sílabas</div>
+<div class="option" data-answer="b">5 sílabas</div>
+<div class="option" data-answer="c">3 sílabas</div>
+<div class="option" data-answer="d">6 sílabas</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Ba-jo_el-ár-bol = 4 sílabas métricas (sinalefa "jo_el"). Palabra aguda "árbol" no suma porque es llana.</p>
+</div>
+</div>
+<div class="question-container" data-question="44">
+<div class="question-number">Ejercicio 44</div>
+<div class="question">¿Qué tipo de pronombre es "alguien"?</div>
+<div class="exercise-text">"Alguien llamó por teléfono."</div>
+<div class="options">
+<div class="option" data-answer="a">Personal</div>
+<div class="option" data-answer="b">Demostrativo</div>
+<div class="option" data-answer="c">Indefinido</div>
+<div class="option" data-answer="d">Interrogativo</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Pronombre INDEFINIDO: "alguien" se refiere a una persona de identidad imprecisa.</p>
+</div>
+</div>
+<div class="question-container" data-question="45">
+<div class="question-number">Ejercicio 45</div>
+<div class="question">¿Qué tipo de pronombre es "nosotros"?</div>
+<div class="exercise-text">"Nosotros vamos al cine."</div>
+<div class="options">
+<div class="option" data-answer="a">Personal</div>
+<div class="option" data-answer="b">Demostrativo</div>
+<div class="option" data-answer="c">Posesivo</div>
+<div class="option" data-answer="d">Relativo</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Pronombre PERSONAL: "nosotros" se refiere a la 1ª persona del plural.</p>
+</div>
+</div>
+<div class="question-container" data-question="46">
+<div class="question-number">Ejercicio 46</div>
+<div class="question">Identifica la aliteración:</div>
+<div class="exercise-text">"Tres tristes tigres tragaban trigo"</div>
+<div class="options">
+<div class="option" data-answer="a">Repetición del sonido "tr"</div>
+<div class="option" data-answer="b">Repetición de "tres"</div>
+<div class="option" data-answer="c">Repetición de "tigres"</div>
+<div class="option" data-answer="d">No hay aliteración</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>ALITERACIÓN: repetición del sonido "tr" en "tres", "tristes", "tigres", "tragaban", "trigo".</p>
+</div>
+</div>
+<div class="question-container" data-question="47">
+<div class="question-number">Ejercicio 47</div>
+<div class="question">¿Qué palabra NO pertenece a la familia de MAR?</div>
+<div class="exercise-text">"mar - marinero - marítimo - marcar"</div>
+<div class="options">
+<div class="option" data-answer="a">mar</div>
+<div class="option" data-answer="b">marinero</div>
+<div class="option" data-answer="c">marítimo</div>
+<div class="option" data-answer="d">marcar</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>"Marcar" NO pertenece a la familia de MAR. Aunque comparte letras, no tiene relación de significado con el mar.</p>
+</div>
+</div>
+<div class="question-container" data-question="48">
+<div class="question-number">Ejercicio 48</div>
+<div class="question">¿Qué tipo de rima tienen estos versos?</div>
+<div class="exercise-text">
+                "En el jardín florido<br/>
+                canta un ruiseñor perdido"
+            </div>
+<div class="options">
+<div class="option" data-answer="a">Rima consonante</div>
+<div class="option" data-answer="b">Rima asonante</div>
+<div class="option" data-answer="c">No riman</div>
+<div class="option" data-answer="d">Rima imperfecta</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Rima CONSONANTE: florido/perdido. Se repiten vocales Y consonantes desde la vocal acentuada: -ido.</p>
+</div>
+</div>
+<div class="question-container" data-question="49">
+<div class="question-number">Ejercicio 49</div>
+<div class="question">¿Cuál es el tiempo compuesto de "cantar"?</div>
+<div class="exercise-text">"Yo _____ una canción hermosa."</div>
+<div class="options">
+<div class="option" data-answer="a">he cantado</div>
+<div class="option" data-answer="b">cantaba</div>
+<div class="option" data-answer="c">cantaré</div>
+<div class="option" data-answer="d">canto</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>Tiempo COMPUESTO: "he cantado" = HABER + participio. Los demás son tiempos simples.</p>
+</div>
+</div>
+<div class="question-container" data-question="50">
+<div class="question-number">Ejercicio 50</div>
+<div class="question">¿Cuál es el esquema de rima de un PAREADO?</div>
+<div class="exercise-text">
+                "En el cielo brillan las estrellas<br/>
+                como diamantes que son muy bellas"
+            </div>
+<div class="options">
+<div class="option" data-answer="a">AA</div>
+<div class="option" data-answer="b">ABAB</div>
+<div class="option" data-answer="c">ABBA</div>
+<div class="option" data-answer="d">ABA</div>
+</div>
+<div class="explanation">
+<h4>💡 Explicación:</h4>
+<p>PAREADO: 2 versos que riman entre sí. Esquema AA (arte mayor) o aa (arte menor). Estrellas/bellas riman.</p>
+</div>
+</div>
+<!-- Resultados -->
+<div class="results" id="results">
+<h2>🎉 ¡Quiz de Práctica Completado!</h2>
+<div class="final-score" id="finalScore">0/50</div>
+<div id="scoreMessage"></div>
+<div id="recommendations"></div>
+<button class="btn restart-btn" onclick="restartQuiz()">🔄 Repetir Quiz</button>
+</div>
+<!-- Controles -->
+<div class="controls">
+<button class="btn" disabled="" id="prevBtn" onclick="previousQuestion()">⬅️ Anterior</button>
+<button class="btn" disabled="" id="checkBtn" onclick="checkAnswer()">✅ Comprobar</button>
+<button class="btn" disabled="" id="nextBtn" onclick="nextQuestion()" style="display: none;">➡️ Siguiente</button>
+<button class="btn btn-success" id="finishBtn" onclick="finishQuiz()" style="display: none;">🏁 Finalizar Quiz</button>
+</div>
+</div>
+<script>
+        // Respuestas correctas
+        const correctAnswers = {
+            1: 'b', 2: 'b', 3: 'a', 4: 'a', 5: 'b', 6: 'b', 7: 'a', 8: 'b', 9: 'b', 10: 'b',
+            11: 'a', 12: 'c', 13: 'a', 14: 'b', 15: 'b', 16: 'b', 17: 'c', 18: 'b', 19: 'b', 20: 'c',
+            21: 'b', 22: 'a', 23: 'b', 24: 'a', 25: 'a', 26: 'b', 27: 'b', 28: 'c', 29: 'd', 30: 'a',
+            31: 'b', 32: 'b', 33: 'b', 34: 'a', 35: 'b', 36: 'b', 37: 'c', 38: 'a', 39: 'b', 40: 'c',
+            41: 'a', 42: 'b', 43: 'a', 44: 'c', 45: 'a', 46: 'a', 47: 'd', 48: 'a', 49: 'a', 50: 'a'
+        };
+
+        let currentQuestionIndex = 1;
+        let score = 0;
+        let answered = false;
+        let userAnswers = {};
+
+        // Inicializar quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDisplay();
+        });
+
+        // Seleccionar opción
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option') && !answered) {
+                const container = e.target.closest('.question-container');
+                const options = container.querySelectorAll('.option');
+                
+                // Limpiar selecciones previas
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Seleccionar nueva opción
+                e.target.classList.add('selected');
+                
+                // Habilitar botón de comprobar
+                document.getElementById('checkBtn').disabled = false;
+            }
+        });
+
+        function checkAnswer() {
+            const container = document.querySelector(`.question-container[data-question="${currentQuestionIndex}"]`);
+            const selectedOption = container.querySelector('.option.selected');
+            
+            if (!selectedOption) return;
+            
+            answered = true;
+            const userAnswer = selectedOption.getAttribute('data-answer');
+            const correctAnswer = correctAnswers[currentQuestionIndex];
+            
+            userAnswers[currentQuestionIndex] = userAnswer;
+            
+            // Mostrar respuestas
+            const options = container.querySelectorAll('.option');
+            options.forEach(option => {
+                const answer = option.getAttribute('data-answer');
+                if (answer === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (answer === userAnswer && answer !== correctAnswer) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // Actualizar puntuación
+            if (userAnswer === correctAnswer) {
+                score++;
+            }
+            
+            // Mostrar explicación
+            const explanation = container.querySelector('.explanation');
+            explanation.classList.add('show');
+            
+            // Actualizar controles
+            document.getElementById('checkBtn').style.display = 'none';
+            
+            if (currentQuestionIndex < 50) {
+                document.getElementById('nextBtn').style.display = 'inline-block';
+            } else {
+                document.getElementById('finishBtn').style.display = 'inline-block';
+            }
+            
+            updateDisplay();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < 50) {
+                // Ocultar pregunta actual
+                document.querySelector(`.question-container[data-question="${currentQuestionIndex}"]`).classList.remove('active');
+                
+                currentQuestionIndex++;
+                answered = false;
+                
+                // Mostrar siguiente pregunta
+                document.querySelector(`.question-container[data-question="${currentQuestionIndex}"]`).classList.add('active');
+                
+                // Resetear controles
+                document.getElementById('checkBtn').style.display = 'inline-block';
+                document.getElementById('checkBtn').disabled = true;
+                document.getElementById('nextBtn').style.display = 'none';
+                document.getElementById('prevBtn').disabled = currentQuestionIndex === 1;
+                
+                updateDisplay();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 1) {
+                // Ocultar pregunta actual
+                document.querySelector(`.question-container[data-question="${currentQuestionIndex}"]`).classList.remove('active');
+                
+                currentQuestionIndex--;
+                
+                // Mostrar pregunta anterior
+                document.querySelector(`.question-container[data-question="${currentQuestionIndex}"]`).classList.add('active');
+                
+                // Verificar si ya fue respondida
+                const wasAnswered = userAnswers[currentQuestionIndex] !== undefined;
+                answered = wasAnswered;
+                
+                if (wasAnswered) {
+                    document.getElementById('checkBtn').style.display = 'none';
+                    if (currentQuestionIndex < 50) {
+                        document.getElementById('nextBtn').style.display = 'inline-block';
+                    } else {
+                        document.getElementById('finishBtn').style.display = 'inline-block';
+                    }
+                } else {
+                    document.getElementById('checkBtn').style.display = 'inline-block';
+                    document.getElementById('checkBtn').disabled = true;
+                    document.getElementById('nextBtn').style.display = 'none';
+                    document.getElementById('finishBtn').style.display = 'none';
+                }
+                
+                document.getElementById('prevBtn').disabled = currentQuestionIndex === 1;
+                updateDisplay();
+            }
+        }
+
+        function updateDisplay() {
+            // Actualizar números
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex;
+            document.getElementById('currentScore').textContent = score;
+            
+            // Actualizar barra de progreso
+            const progress = (Object.keys(userAnswers).length / 50) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function finishQuiz() {
+            // Ocultar pregunta actual
+            document.querySelector(`.question-container[data-question="${currentQuestionIndex}"]`).classList.remove('active');
+            
+            // Mostrar resultados
+            const results = document.getElementById('results');
+            const finalScore = document.getElementById('finalScore');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const recommendations = document.getElementById('recommendations');
+            
+            finalScore.textContent = `${score}/50`;
+            
+            // Determinar mensaje según puntuación
+            const percentage = (score / 50) * 100;
+            
+            if (percentage >= 90) {
+                finalScore.className = 'final-score score-excellent';
+                scoreMessage.innerHTML = '<h3>🏆 ¡Excelente!</h3><p>Dominas perfectamente la aplicación práctica de los conceptos.</p>';
+                recommendations.innerHTML = '<p><strong>Recomendación:</strong> Estás completamente preparado para el examen. ¡Enhorabuena!</p>';
+            } else if (percentage >= 70) {
+                finalScore.className = 'final-score score-good';
+                scoreMessage.innerHTML = '<h3>👍 ¡Bien!</h3><p>Tienes una buena aplicación práctica, pero puedes mejorar.</p>';
+                recommendations.innerHTML = '<p><strong>Recomendación:</strong> Practica más los ejercicios donde fallaste y repasa la teoría correspondiente.</p>';
+            } else {
+                finalScore.className = 'final-score score-needs-improvement';
+                scoreMessage.innerHTML = '<h3>📚 Necesitas más práctica</h3><p>Es importante que practiques más antes del examen.</p>';
+                recommendations.innerHTML = '<p><strong>Recomendación:</strong> Estudia la infografía, haz el quiz teórico y repite este quiz hasta conseguir al menos 35/50.</p>';
+            }
+            
+            results.classList.add('show');
+            
+            // Ocultar controles
+            document.querySelector('.controls').style.display = 'none';
+        }
+
+        function restartQuiz() {
+            // Resetear variables
+            currentQuestionIndex = 1;
+            score = 0;
+            answered = false;
+            userAnswers = {};
+            
+            // Ocultar resultados
+            document.getElementById('results').classList.remove('show');
+            
+            // Mostrar controles
+            document.querySelector('.controls').style.display = 'flex';
+            
+            // Resetear todas las preguntas
+            document.querySelectorAll('.question-container').forEach((container, index) => {
+                container.classList.remove('active');
+                if (index === 0) container.classList.add('active');
+                
+                // Limpiar opciones
+                container.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                // Ocultar explicaciones
+                container.querySelector('.explanation').classList.remove('show');
+            });
+            
+            // Resetear controles
+            document.getElementById('checkBtn').style.display = 'inline-block';
+            document.getElementById('checkBtn').disabled = true;
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('finishBtn').style.display = 'none';
+            document.getElementById('prevBtn').disabled = true;
+            
+            updateDisplay();
+        }
+    </script>
+</body>
+</html>

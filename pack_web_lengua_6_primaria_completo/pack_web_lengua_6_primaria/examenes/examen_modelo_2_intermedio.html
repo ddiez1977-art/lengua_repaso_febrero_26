@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Examen Modelo 2 - Lengua 6º Primaria (Nivel Intermedio)</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .exam-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fdf2f2;
+            border-radius: 5px;
+        }
+
+        .info-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-field label {
+            font-weight: bold;
+            min-width: 80px;
+        }
+
+        .info-field input {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #e74c3c;
+            background: transparent;
+            font-size: 1rem;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .option {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option input[type="radio"] {
+            transform: scale(1.2);
+        }
+
+        .text-input {
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1rem;
+            width: 200px;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .long-input {
+            width: 300px;
+        }
+
+        .poem-box {
+            background: #f1f2f6;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .analysis-table th,
+        .analysis-table td {
+            border: 2px solid #bdc3c7;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .analysis-table th {
+            background: #fdf2f2;
+            font-weight: bold;
+        }
+
+        .analysis-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-size: 1rem;
+            padding: 5px;
+        }
+
+        .sentence-analysis {
+            background: #fff;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .underline-space {
+            display: inline-block;
+            border-bottom: 2px solid #333;
+            min-width: 120px;
+            margin: 0 5px;
+        }
+
+        .error-text {
+            background: #ffcdd2;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .complex-exercise {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: #fdf2f2;
+            border-radius: 5px;
+            color: #7f8c8d;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .exam-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="exam-container">
+<div class="header">
+<h1>EXAMEN DE LENGUA ESPAÑOLA</h1>
+<div class="subtitle">6º Curso de Educación Primaria</div>
+<div class="subtitle"><strong>MODELO 2 - NIVEL INTERMEDIO</strong></div>
+</div>
+<div class="student-info">
+<div class="info-field">
+<label>Nombre:</label>
+<input placeholder="Escribe tu nombre completo" type="text"/>
+</div>
+<div class="info-field">
+<label>Curso:</label>
+<input placeholder="6º" type="text"/>
+</div>
+<div class="info-field">
+<label>Fecha:</label>
+<input placeholder="___/___/2026" type="text"/>
+</div>
+<div class="info-field">
+<label>Nota:</label>
+<input placeholder="____/10" type="text"/>
+</div>
+</div>
+<div class="instructions">
+<h3>⚠️ INSTRUCCIONES</h3>
+<ul>
+<li>Lee atentamente cada pregunta antes de responder</li>
+<li>Justifica tus respuestas cuando se solicite</li>
+<li>Cuida la ortografía y la presentación</li>
+<li>Tiempo estimado: 75 minutos</li>
+<li>Puntuación total: 10 puntos</li>
+</ul>
+</div>
+<!-- SECCIÓN 1: ORTOGRAFÍA Y PALABRAS TRAMPA -->
+<div class="section">
+<div class="section-header">
+                📝 SECCIÓN 1: ORTOGRAFÍA Y PALABRAS TRAMPA (2,5 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">1. (0,5 puntos)</div>
+<div class="question-text">Corrige los errores ortográficos en este texto:</div>
+<div class="complex-exercise">
+                        Mi <span class="error-text">ermana</span> <span class="error-text">bive</span> en una casa <span class="error-text">ermosa</span> y <span class="error-text">escrivio</span> una carta a su <span class="error-text">abuela</span>.
+                    </div>
+<p>Palabras corregidas:</p>
+<p>1. <input class="text-input" placeholder="hermana" type="text"/></p>
+<p>2. <input class="text-input" placeholder="vive" type="text"/></p>
+<p>3. <input class="text-input" placeholder="hermosa" type="text"/></p>
+<p>4. <input class="text-input" placeholder="escribió" type="text"/></p>
+<p>5. <input class="text-input" placeholder="abuela" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">2. (1 punto)</div>
+<div class="question-text">Completa con las palabras trampa correctas:</div>
+<p style="margin: 10px 0;">a) ¡<span class="underline-space"></span>! Me duele la cabeza. (ay/hay/ahí)</p>
+<p style="margin: 10px 0;">b) <span class="underline-space"></span> tres libros en la mesa. (ay/hay/ahí)</p>
+<p style="margin: 10px 0;">c) Déjalo <span class="underline-space"></span>, sobre la silla. (ay/hay/ahí)</p>
+<p style="margin: 10px 0;">d) Vamos <span class="underline-space"></span> la película. (haber/a ver)</p>
+<p style="margin: 10px 0;">e) Ya he <span class="underline-space"></span> los deberes. (echo/hecho)</p>
+</div>
+<div class="question">
+<div class="question-number">3. (1 punto)</div>
+<div class="question-text">Coloca las tildes diacríticas donde corresponda y explica por qué:</div>
+<p style="margin: 10px 0;">a) Tu hermano estudia en tu casa.</p>
+<p>Corrección: <input class="long-input" placeholder="Tú hermano estudia en tu casa." type="text"/></p>
+<p>Explicación: <input class="long-input" placeholder="Tú = pronombre, tu = determinante" type="text"/></p>
+<p style="margin: 10px 0;">b) El dice que el libro es suyo.</p>
+<p>Corrección: <input class="long-input" placeholder="Él dice que el libro es suyo." type="text"/></p>
+<p>Explicación: <input class="long-input" placeholder="Él = pronombre, el = artículo" type="text"/></p>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 2: MORFOLOGÍA AVANZADA -->
+<div class="section">
+<div class="section-header">
+                🔤 SECCIÓN 2: MORFOLOGÍA AVANZADA (2,5 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">4. (1 punto)</div>
+<div class="question-text">Clasifica estas palabras según su tipo:</div>
+<div class="complex-exercise">
+<strong>Palabras:</strong> rebaño, amor, Madrid, mesa, equipo, libertad
+                    </div>
+<p><strong>Sustantivos colectivos:</strong> <input class="long-input" placeholder="rebaño, equipo" type="text"/></p>
+<p><strong>Sustantivos abstractos:</strong> <input class="long-input" placeholder="amor, libertad" type="text"/></p>
+<p><strong>Sustantivos propios:</strong> <input class="text-input" placeholder="Madrid" type="text"/></p>
+<p><strong>Sustantivos concretos individuales:</strong> <input class="text-input" placeholder="mesa" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">5. (1 punto)</div>
+<div class="question-text">Identifica si son pronombres o determinantes y justifica:</div>
+<p style="margin: 10px 0;">a) "Mi hermano estudia" → Mi: <input class="text-input" placeholder="determinante" type="text"/></p>
+<p>Justificación: <input class="long-input" placeholder="Acompaña al nombre 'hermano'" type="text"/></p>
+<p style="margin: 10px 0;">b) "El mío es grande" → mío: <input class="text-input" placeholder="pronombre" type="text"/></p>
+<p>Justificación: <input class="long-input" placeholder="Sustituye al nombre, va sin nombre" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">6. (0,5 puntos)</div>
+<div class="question-text">Separa raíz y desinencia, y explica su función:</div>
+<p style="margin: 10px 0;">Verbo: "estudiábamos"</p>
+<p>Raíz: <input class="text-input" placeholder="estudi-" type="text"/> | Desinencia: <input class="text-input" placeholder="-ábamos" type="text"/></p>
+<p><strong>¿Qué información nos da la desinencia "-ábamos"?</strong></p>
+<p><input class="long-input" placeholder="1ª persona plural pretérito imperfecto indicativo" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">7. (0,5 puntos)</div>
+<div class="question-text">¿A qué conjugación pertenece "partir" y por qué?</div>
+<p>Conjugación: <input class="text-input" placeholder="3ª conjugación" type="text"/></p>
+<p>Razón: <input class="long-input" placeholder="Termina en -ir" type="text"/></p>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 3: SINTAXIS COMPLEJA -->
+<div class="section">
+<div class="section-header">
+                🔗 SECCIÓN 3: SINTAXIS COMPLEJA (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">8. (0,5 puntos)</div>
+<div class="question-text">¿Qué diferencia hay entre predicado nominal y verbal?</div>
+<p><strong>Predicado nominal:</strong> <input class="long-input" placeholder="Verbo copulativo + atributo" type="text"/></p>
+<p><strong>Predicado verbal:</strong> <input class="long-input" placeholder="Verbo no copulativo + complementos" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">9. (1,5 puntos)</div>
+<div class="question-text">Analiza sintácticamente: "Pedro regaló un libro interesante a María ayer en la biblioteca"</div>
+<div class="sentence-analysis">
+<strong>Verbo:</strong> <span class="underline-space"></span><br/><br/>
+<strong>Sujeto:</strong> <span class="underline-space"></span><br/><br/>
+<strong>CD:</strong> <span class="underline-space"></span><br/><br/>
+<strong>CI:</strong> <span class="underline-space"></span><br/><br/>
+<strong>CC Tiempo:</strong> <span class="underline-space"></span><br/><br/>
+<strong>CC Lugar:</strong> <span class="underline-space"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 4: MÉTRICA Y LITERATURA -->
+<div class="section">
+<div class="section-header">
+                🎭 SECCIÓN 4: MÉTRICA Y LITERATURA (1,5 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">10. (1 punto)</div>
+<div class="question-text">Analiza métricamente y determina la estrofa:</div>
+<div class="poem-box">
+                        "La hierba verde ondula al viento" (A)<br/>
+                        "como un mar de esmeraldas" (B)<br/>
+                        "que danza en el momento" (A)<br/>
+                        "con sus hojas doradas" (B)
+                    </div>
+<table class="analysis-table">
+<tr>
+<th>Verso</th>
+<th>Sílabas</th>
+<th>Sinalefas</th>
+<th>Arte</th>
+<th>Rima</th>
+</tr>
+<tr>
+<td>1</td>
+<td><input class="analysis-input" placeholder="9" type="text"/></td>
+<td><input class="analysis-input" placeholder="al_viento" type="text"/></td>
+<td><input class="analysis-input" placeholder="mayor" type="text"/></td>
+<td><input class="analysis-input" placeholder="consonante" type="text"/></td>
+</tr>
+<tr>
+<td>2</td>
+<td><input class="analysis-input" placeholder="8" type="text"/></td>
+<td><input class="analysis-input" placeholder="ninguna" type="text"/></td>
+<td><input class="analysis-input" placeholder="menor" type="text"/></td>
+<td><input class="analysis-input" placeholder="consonante" type="text"/></td>
+</tr>
+</table>
+<p><strong>Tipo de estrofa:</strong> <input class="text-input" placeholder="cuarteta asonante" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">11. (0,5 puntos)</div>
+<div class="question-text">Identifica las figuras literarias y explica:</div>
+<p style="margin: 10px 0;">"El viento susurra secretos al oído"</p>
+<p>Figura literaria: <input class="text-input" placeholder="personificación" type="text"/></p>
+<p>Explicación: <input class="long-input" placeholder="Da cualidades humanas al viento" type="text"/></p>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 5: SEMÁNTICA Y FAMILIAS -->
+<div class="section">
+<div class="section-header">
+                💭 SECCIÓN 5: SEMÁNTICA Y FAMILIAS (1,5 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">12. (0,5 puntos)</div>
+<div class="question-text">Clasifica estas relaciones semánticas:</div>
+<p>a) vino (bebida/del verbo venir): <input class="text-input" placeholder="homógrafas" type="text"/></p>
+<p>b) hola/ola: <input class="text-input" placeholder="homófonas" type="text"/></p>
+<p>c) grande/enorme: <input class="text-input" placeholder="sinónimas" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">13. (1 punto)</div>
+<div class="question-text">Familias de palabras - Ejercicio completo:</div>
+<p><strong>a) Identifica la palabra intrusa y explica por qué:</strong></p>
+<p>Familia de "tierra": terreno, territorial, <span class="error-text">tierno</span>, enterrar</p>
+<p>Palabra intrusa: <input class="text-input" placeholder="tierno" type="text"/></p>
+<p>Razón: <input class="long-input" placeholder="No tiene relación de significado con tierra" type="text"/></p>
+<p><strong>b) Completa la familia de "agua":</strong></p>
+<p>agua, <input class="text-input" placeholder="aguacero" type="text"/>, <input class="text-input" placeholder="aguado" type="text"/>, <input class="text-input" placeholder="acuático" type="text"/></p>
+<p><strong>c) ¿Cuál es la raíz de: cantar, cantante, canción?</strong></p>
+<p>Raíz: <input class="text-input" placeholder="cant-" type="text"/></p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p><strong>¡Revisa todas tus respuestas y justificaciones!</strong></p>
+<p>En este nivel intermedio se valora especialmente la explicación de tus respuestas.</p>
+</div>
+</div>
+</body>
+</html>

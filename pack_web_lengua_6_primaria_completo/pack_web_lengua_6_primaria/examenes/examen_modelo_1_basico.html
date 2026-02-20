@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Examen Modelo 1 - Lengua 6º Primaria (Nivel Básico)</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .exam-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+
+        .info-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-field label {
+            font-weight: bold;
+            min-width: 80px;
+        }
+
+        .info-field input {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #34495e;
+            background: transparent;
+            font-size: 1rem;
+        }
+
+        .instructions {
+            background: #e8f4fd;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .instructions h3 {
+            color: #2980b9;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .option {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option input[type="radio"] {
+            transform: scale(1.2);
+        }
+
+        .text-input {
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1rem;
+            width: 200px;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .poem-box {
+            background: #f1f2f6;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .analysis-table th,
+        .analysis-table td {
+            border: 2px solid #bdc3c7;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .analysis-table th {
+            background: #ecf0f1;
+            font-weight: bold;
+        }
+
+        .analysis-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-size: 1rem;
+            padding: 5px;
+        }
+
+        .sentence-analysis {
+            background: #fff;
+            border: 2px solid #27ae60;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .underline-space {
+            display: inline-block;
+            border-bottom: 2px solid #333;
+            min-width: 100px;
+            margin: 0 5px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            color: #7f8c8d;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .exam-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="exam-container">
+<div class="header">
+<h1>EXAMEN DE LENGUA ESPAÑOLA</h1>
+<div class="subtitle">6º Curso de Educación Primaria</div>
+<div class="subtitle"><strong>MODELO 1 - NIVEL BÁSICO</strong></div>
+</div>
+<div class="student-info">
+<div class="info-field">
+<label>Nombre:</label>
+<input placeholder="Escribe tu nombre completo" type="text"/>
+</div>
+<div class="info-field">
+<label>Curso:</label>
+<input placeholder="6º" type="text"/>
+</div>
+<div class="info-field">
+<label>Fecha:</label>
+<input placeholder="___/___/2026" type="text"/>
+</div>
+<div class="info-field">
+<label>Nota:</label>
+<input placeholder="____/10" type="text"/>
+</div>
+</div>
+<div class="instructions">
+<h3>📋 INSTRUCCIONES</h3>
+<ul>
+<li>Lee atentamente cada pregunta antes de responder</li>
+<li>Marca con una X la respuesta correcta en las preguntas de opción múltiple</li>
+<li>Escribe con letra clara en las preguntas de desarrollo</li>
+<li>Tiempo estimado: 60 minutos</li>
+<li>Puntuación total: 10 puntos</li>
+</ul>
+</div>
+<!-- SECCIÓN 1: ORTOGRAFÍA -->
+<div class="section">
+<div class="section-header">
+                📝 SECCIÓN 1: ORTOGRAFÍA (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">1. (0,5 puntos)</div>
+<div class="question-text">Elige la palabra correctamente escrita:</div>
+<div class="options">
+<div class="option">
+<input name="q1" type="radio" value="a"/> a) escrivir
+                        </div>
+<div class="option">
+<input name="q1" type="radio" value="b"/> b) escribir
+                        </div>
+<div class="option">
+<input name="q1" type="radio" value="c"/> c) escrivbir
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">2. (0,5 puntos)</div>
+<div class="question-text">Completa con la palabra correcta (ay/hay/ahí):</div>
+<p style="margin: 15px 0; font-size: 1.1rem;">
+                        ¡<span class="underline-space"></span>! Me duele la cabeza. <span class="underline-space"></span> tres libros en la mesa.
+                    </p>
+</div>
+<div class="question">
+<div class="question-number">3. (0,5 puntos)</div>
+<div class="question-text">¿Cuál es la frase correcta?</div>
+<div class="options">
+<div class="option">
+<input name="q3" type="radio" value="a"/> a) Tu hermano estudia en tú casa
+                        </div>
+<div class="option">
+<input name="q3" type="radio" value="b"/> b) Tú hermano estudia en tu casa
+                        </div>
+<div class="option">
+<input name="q3" type="radio" value="c"/> c) Tu hermano estudia en tu casa
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">4. (0,5 puntos)</div>
+<div class="question-text">Escribe la forma correcta:</div>
+<p style="margin: 15px 0; font-size: 1.1rem;">
+                        Vamos <span class="underline-space"></span> la película. (haber/a ver)
+                    </p>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 2: MORFOLOGÍA -->
+<div class="section">
+<div class="section-header">
+                🔤 SECCIÓN 2: MORFOLOGÍA (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">5. (0,5 puntos)</div>
+<div class="question-text">¿Qué tipo de sustantivo es "rebaño"?</div>
+<div class="options">
+<div class="option">
+<input name="q5" type="radio" value="a"/> a) Individual
+                        </div>
+<div class="option">
+<input name="q5" type="radio" value="b"/> b) Colectivo
+                        </div>
+<div class="option">
+<input name="q5" type="radio" value="c"/> c) Abstracto
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">6. (0,5 puntos)</div>
+<div class="question-text">En "Mi hermano estudia", ¿qué función tiene "Mi"?</div>
+<div class="options">
+<div class="option">
+<input name="q6" type="radio" value="a"/> a) Pronombre
+                        </div>
+<div class="option">
+<input name="q6" type="radio" value="b"/> b) Determinante
+                        </div>
+<div class="option">
+<input name="q6" type="radio" value="c"/> c) Adjetivo
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">7. (0,5 puntos)</div>
+<div class="question-text">Separa la raíz y la desinencia del verbo "vivimos":</div>
+<p style="margin: 15px 0; font-size: 1.1rem;">
+                        Raíz: <span class="underline-space"></span> | Desinencia: <span class="underline-space"></span>
+</p>
+<p style="margin: 10px 0;"><strong>¿Qué contiene la raíz del verbo?</strong></p>
+<div class="options">
+<div class="option">
+<input name="q7b" type="radio" value="a"/> a) El significado principal
+                        </div>
+<div class="option">
+<input name="q7b" type="radio" value="b"/> b) La persona y número
+                        </div>
+<div class="option">
+<input name="q7b" type="radio" value="c"/> c) El tiempo y modo
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">8. (1 punto)</div>
+<div class="question-text">Analiza morfológicamente el verbo "cantábamos":</div>
+<table class="analysis-table">
+<tr>
+<th>Verbo (infinitivo)</th>
+<th>Persona</th>
+<th>Número</th>
+<th>Tiempo</th>
+<th>Modo</th>
+</tr>
+<tr>
+<td><input class="analysis-input" placeholder="cantar" type="text"/></td>
+<td><input class="analysis-input" placeholder="1ª" type="text"/></td>
+<td><input class="analysis-input" placeholder="plural" type="text"/></td>
+<td><input class="analysis-input" placeholder="pretérito imperfecto" type="text"/></td>
+<td><input class="analysis-input" placeholder="indicativo" type="text"/></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 3: SINTAXIS -->
+<div class="section">
+<div class="section-header">
+                🔗 SECCIÓN 3: SINTAXIS (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">9. (0,5 puntos)</div>
+<div class="question-text">¿Cuáles son los verbos copulativos?</div>
+<div class="options">
+<div class="option">
+<input name="q9" type="radio" value="a"/> a) Tener, hacer, decir
+                        </div>
+<div class="option">
+<input name="q9" type="radio" value="b"/> b) Ser, estar, parecer
+                        </div>
+<div class="option">
+<input name="q9" type="radio" value="c"/> c) Ir, venir, salir
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">10. (1,5 puntos)</div>
+<div class="question-text">Analiza sintácticamente: "María compró flores ayer"</div>
+<div class="sentence-analysis">
+                        Verbo: <span class="underline-space"></span><br/><br/>
+                        Sujeto: <span class="underline-space"></span><br/><br/>
+                        CD (Complemento Directo): <span class="underline-space"></span><br/><br/>
+                        CC Tiempo: <span class="underline-space"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 4: MÉTRICA Y FIGURAS LITERARIAS -->
+<div class="section">
+<div class="section-header">
+                🎭 SECCIÓN 4: MÉTRICA Y FIGURAS LITERARIAS (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">11. (1 punto)</div>
+<div class="question-text">Analiza métricamente estos versos:</div>
+<div class="poem-box">
+                        "En el jardín hay una flor"<br/>
+                        "que perfuma con su olor"
+                    </div>
+<p><strong>Verso 1 - Número de sílabas:</strong> <input class="text-input" placeholder="8" type="text"/></p>
+<p><strong>Verso 2 - Número de sílabas:</strong> <input class="text-input" placeholder="8" type="text"/></p>
+<p><strong>Tipo de arte:</strong> <input class="text-input" placeholder="menor" type="text"/></p>
+<p><strong>Tipo de rima:</strong> <input class="text-input" placeholder="consonante" type="text"/></p>
+</div>
+<div class="question">
+<div class="question-number">12. (1 punto)</div>
+<div class="question-text">Identifica las figuras literarias:</div>
+<p style="margin: 10px 0;"><strong>a)</strong> "Sus ojos son dos estrellas" → <input class="text-input" placeholder="metáfora" type="text"/></p>
+<p style="margin: 10px 0;"><strong>b)</strong> "Corre como el viento" → <input class="text-input" placeholder="comparación" type="text"/></p>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 5: SEMÁNTICA Y FAMILIAS DE PALABRAS -->
+<div class="section">
+<div class="section-header">
+                💭 SECCIÓN 5: SEMÁNTICA Y FAMILIAS DE PALABRAS (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="question-number">13. (0,5 puntos)</div>
+<div class="question-text">¿Qué relación semántica tiene la palabra "banco" (asiento/entidad financiera)?</div>
+<div class="options">
+<div class="option">
+<input name="q13" type="radio" value="a"/> a) Homonimia
+                        </div>
+<div class="option">
+<input name="q13" type="radio" value="b"/> b) Polisemia
+                        </div>
+<div class="option">
+<input name="q13" type="radio" value="c"/> c) Sinonimia
+                        </div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">14. (0,5 puntos)</div>
+<div class="question-text">¿Cuál es el hiperónimo de "rosa", "tulipán" y "margarita"?</div>
+<p style="margin: 15px 0;">
+                        Respuesta: <input class="text-input" placeholder="flor" type="text"/>
+</p>
+</div>
+<div class="question">
+<div class="question-number">15. (1 punto)</div>
+<div class="question-text">Completa la familia de palabras:</div>
+<p style="margin: 10px 0;"><strong>Familia de "mar":</strong></p>
+<p>mar, marinero, <input class="text-input" placeholder="marítimo" type="text"/>, <input class="text-input" placeholder="marea" type="text"/></p>
+<p style="margin: 15px 0 10px 0;"><strong>¿Cuál NO pertenece a la familia de "libro"?</strong></p>
+<div class="options">
+<div class="option">
+<input name="q15b" type="radio" value="a"/> a) librería
+                        </div>
+<div class="option">
+<input name="q15b" type="radio" value="b"/> b) libélula
+                        </div>
+<div class="option">
+<input name="q15b" type="radio" value="c"/> c) librero
+                        </div>
+</div>
+<div class="question">
+<div class="question-number">16. (0.5 puntos)</div>
+<div class="question-text">Diptongos e Hiatos:</div>
+<p style="margin: 10px 0;"><strong>Indica si cada palabra tiene DIPTONGO o HIATO:</strong></p>
+<p>1. cielo → <input class="text-input" placeholder="diptongo" style="width: 100px;" type="text"/></p>
+<p>2. país → <input class="text-input" placeholder="hiato" style="width: 100px;" type="text"/></p>
+<p style="margin: 15px 0 10px 0;"><strong>¿Por qué "María" tiene hiato?</strong></p>
+<div class="options">
+<div class="option">
+<input name="q16" type="radio" value="a"/> a) Porque tiene dos vocales abiertas
+                </div>
+<div class="option">
+<input name="q16" type="radio" value="b"/> b) Porque la vocal cerrada "í" lleva tilde
+                </div>
+<div class="option">
+<input name="q16" type="radio" value="c"/> c) Porque es un nombre propio
+                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p><strong>¡Revisa todas tus respuestas antes de entregar!</strong></p>
+<p>Recuerda: La letra clara y la presentación ordenada también cuentan.</p>
+</div>
+</div>
+</body>
+</html>

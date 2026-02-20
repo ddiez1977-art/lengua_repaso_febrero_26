@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Examen Modelo 7 - Lengua 6º Primaria (Experto)</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 18mm;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.5;
+            color: #333;
+            background: white;
+            font-size: 11pt;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #c0392b;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 19pt;
+            color: #c0392b;
+            margin-bottom: 8px;
+        }
+
+        .header .info {
+            font-size: 11pt;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            background: #c0392b;
+            color: white;
+            padding: 12px 15px;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question {
+            margin-bottom: 18px;
+            padding: 12px;
+            border-left: 4px solid #c0392b;
+            background: #fafafa;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 11pt;
+        }
+
+        .answer-space {
+            border-bottom: 1px solid #666;
+            display: inline-block;
+            min-width: 80px;
+            margin: 0 3px;
+        }
+
+        .long-answer {
+            min-width: 250px;
+        }
+
+        .extra-long {
+            min-width: 400px;
+        }
+
+        .grid-answers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .poem-box {
+            background: #fff8e1;
+            border: 2px solid #ffc107;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: center;
+            font-size: 12pt;
+        }
+
+        .sentence-box {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 11pt;
+        }
+
+        .instructions {
+            background: #e1f5fe;
+            border: 2px solid #03a9f4;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-style: italic;
+            font-size: 10pt;
+        }
+
+        .points {
+            background: #c0392b;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .underline-space {
+            text-decoration: underline;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .complex-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .complex-table th,
+        .complex-table td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .complex-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .challenge-box {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .challenge-title {
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+<h1>EXAMEN MODELO 7 - LENGUA 6º DE PRIMARIA</h1>
+<div class="info">Nivel Experto | Tiempo: 100 minutos | Puntuación: 120 puntos</div>
+</div>
+<div class="student-info">
+<div>
+<strong>Nombre:</strong> ________________________________
+        </div>
+<div>
+<strong>Curso:</strong> ________________________________
+        </div>
+<div>
+<strong>Fecha:</strong> ________________________________
+        </div>
+</div>
+<!-- SECCIÓN 1: ANÁLISIS MORFOSINTÁCTICO INTEGRAL -->
+<div class="section">
+<div class="section-title">
+<span>ANÁLISIS MORFOSINTÁCTICO INTEGRAL</span>
+<span class="points">25 puntos</span>
+</div>
+<div class="instructions">
+            Realiza un análisis completo (morfológico Y sintáctico) de la siguiente oración compleja. Debes identificar TODAS las funciones sintácticas y analizar morfológicamente TODAS las palabras.
+        </div>
+<div class="sentence-box">
+            "Mis queridos hermanos pequeños compraron ayer tres libros interesantes de aventuras para sus amigos del colegio."
+        </div>
+<div class="question">
+<div class="question-number">A) ANÁLISIS SINTÁCTICO COMPLETO:</div>
+<table class="complex-table">
+<tr>
+<th>Función Sintáctica</th>
+<th>Palabras que la forman</th>
+<th>Análisis interno</th>
+</tr>
+<tr>
+<td><strong>SUJETO</strong></td>
+<td><span class="answer-space extra-long"></span></td>
+<td>DET: <span class="answer-space"></span> COMP: <span class="answer-space"></span> COMP: <span class="answer-space"></span> N: <span class="answer-space"></span></td>
+</tr>
+<tr>
+<td><strong>PREDICADO</strong></td>
+<td><span class="answer-space extra-long"></span></td>
+<td>N: <span class="answer-space"></span></td>
+</tr>
+<tr>
+<td><strong>CD</strong></td>
+<td><span class="answer-space extra-long"></span></td>
+<td>DET: <span class="answer-space"></span> N: <span class="answer-space"></span> COMP: <span class="answer-space"></span> ENLACE: <span class="answer-space"></span></td>
+</tr>
+<tr>
+<td><strong>CI</strong></td>
+<td><span class="answer-space extra-long"></span></td>
+<td>ENLACE: <span class="answer-space"></span> DET: <span class="answer-space"></span> N: <span class="answer-space"></span> ENLACE: <span class="answer-space"></span></td>
+</tr>
+<tr>
+<td><strong>CC Tiempo</strong></td>
+<td><span class="answer-space"></span></td>
+<td>Tipo: <span class="answer-space long-answer"></span></td>
+</tr>
+</table>
+</div>
+<div class="question">
+<div class="question-number">B) ANÁLISIS MORFOLÓGICO del verbo "compraron":</div>
+<div>
+                • Clase de palabra: <span class="answer-space"></span><br/>
+                • Infinitivo: <span class="answer-space"></span> • Conjugación: <span class="answer-space"></span><br/>
+                • Raíz: <span class="answer-space"></span> • Desinencia: <span class="answer-space"></span><br/>
+                • Persona: <span class="answer-space"></span> • Número: <span class="answer-space"></span><br/>
+                • Tiempo: <span class="answer-space long-answer"></span> • Modo: <span class="answer-space"></span>
+</div>
+</div>
+<div class="question">
+<div class="question-number">C) ANÁLISIS MORFOLÓGICO de "interesantes":</div>
+<div>
+                • Clase de palabra: <span class="answer-space"></span><br/>
+                • Grado: <span class="answer-space"></span> (positivo/comparativo/superlativo)<br/>
+                • Género: <span class="answer-space"></span> • Número: <span class="answer-space"></span><br/>
+                • Función sintáctica: <span class="answer-space long-answer"></span>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 2: ANÁLISIS MÉTRICO Y FIGURAS LITERARIAS AVANZADO -->
+<div class="section">
+<div class="section-title">
+<span>ANÁLISIS MÉTRICO Y FIGURAS LITERARIAS AVANZADO</span>
+<span class="points">25 puntos</span>
+</div>
+<div class="instructions">
+            Analiza completamente los siguientes versos de Antonio Machado. Incluye análisis métrico completo, identificación de estrofa, figuras literarias y comentario estilístico.
+        </div>
+<div class="poem-box">
+            Caminante, son tus huellas<br/>
+            el camino y nada más;<br/>
+            caminante, no hay camino,<br/>
+            se hace camino al andar.<br/>
+            Al andar se hace camino<br/>
+            y al volver la vista atrás<br/>
+            se ve la senda que nunca<br/>
+            se ha de volver a pisar.
+        </div>
+<div class="question">
+<div class="question-number">A) ANÁLISIS MÉTRICO COMPLETO:</div>
+<table class="complex-table">
+<tr>
+<th>Verso</th>
+<th>Separación silábica</th>
+<th>Sinalefas</th>
+<th>Nº sílabas</th>
+<th>Tipo palabra final</th>
+<th>Rima</th>
+</tr>
+<tr>
+<td>Caminante, son tus huellas</td>
+<td><span class="answer-space extra-long"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+</tr>
+<tr>
+<td>el camino y nada más</td>
+<td><span class="answer-space extra-long"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+</tr>
+<tr>
+<td>caminante, no hay camino</td>
+<td><span class="answer-space extra-long"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+</tr>
+<tr>
+<td>se hace camino al andar</td>
+<td><span class="answer-space extra-long"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space"></span></td>
+</tr>
+</table>
+</div>
+<div class="question">
+<div class="question-number">B) ANÁLISIS DE LA ESTROFA:</div>
+<div class="two-column">
+<div>
+                    • Número de versos: <span class="answer-space"></span><br/>
+                    • Tipo de arte: <span class="answer-space"></span><br/>
+                    • Tipo de rima: <span class="answer-space"></span><br/>
+                    • Esquema de rima: <span class="answer-space long-answer"></span>
+</div>
+<div>
+                    • Nombre de la estrofa: <span class="answer-space long-answer"></span><br/>
+                    • Tema principal: <span class="answer-space long-answer"></span>
+</div>
+</div>
+</div>
+<div class="question">
+<div class="question-number">C) FIGURAS LITERARIAS - Identifica y explica:</div>
+<div>
+                1. "Caminante, son tus huellas / el camino y nada más"<br/>
+                Figura: <span class="answer-space long-answer"></span><br/>
+                Explicación: <span class="answer-space extra-long"></span><br/><br/>
+
+                2. "se hace camino al andar"<br/>
+                Figura: <span class="answer-space long-answer"></span><br/>
+                Explicación: <span class="answer-space extra-long"></span><br/><br/>
+
+                3. "Caminante... caminante"<br/>
+                Figura: <span class="answer-space long-answer"></span><br/>
+                Explicación: <span class="answer-space extra-long"></span>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 3: RELACIONES SEMÁNTICAS Y LÉXICO AVANZADO -->
+<div class="section">
+<div class="section-title">
+<span>RELACIONES SEMÁNTICAS Y LÉXICO AVANZADO</span>
+<span class="points">20 puntos</span>
+</div>
+<div class="question">
+<div class="question-number">A) ANÁLISIS SEMÁNTICO COMPLEJO:</div>
+<div>
+                Analiza las siguientes palabras indicando TODOS los tipos de relaciones semánticas que presentan:<br/><br/>
+
+                1. <strong>BANCO</strong> (asiento / entidad financiera / cardumen de peces)<br/>
+                Tipo de relación: <span class="answer-space long-answer"></span><br/>
+                Justificación: <span class="answer-space extra-long"></span><br/><br/>
+
+                2. <strong>VINO</strong> (bebida / del verbo venir)<br/>
+                Tipo de relación: <span class="answer-space long-answer"></span><br/>
+                Justificación: <span class="answer-space extra-long"></span><br/><br/>
+
+                3. <strong>ASTA</strong> / <strong>HASTA</strong><br/>
+                Tipo de relación: <span class="answer-space long-answer"></span><br/>
+                Justificación: <span class="answer-space extra-long"></span>
+</div>
+</div>
+<div class="question">
+<div class="question-number">B) HIPERONIMIA Y HIPONIMIA:</div>
+<div>
+                Completa el siguiente esquema jerárquico:<br/><br/>
+<strong>VEHÍCULO</strong> (hiperónimo)<br/>
+                ↓<br/>
+                1. <span class="answer-space long-answer"></span> (hipónimo)<br/>
+                2. <span class="answer-space long-answer"></span> (hipónimo)<br/>
+                3. <span class="answer-space long-answer"></span> (hipónimo)<br/>
+                4. <span class="answer-space long-answer"></span> (hipónimo)<br/><br/>
+
+                Ahora crea tu propio esquema:<br/>
+<span class="answer-space long-answer"></span> (hiperónimo)<br/>
+                ↓<br/>
+                1. <span class="answer-space long-answer"></span><br/>
+                2. <span class="answer-space long-answer"></span><br/>
+                3. <span class="answer-space long-answer"></span>
+</div>
+</div>
+<div class="question">
+<div class="question-number">C) ANTONIMIA ESPECÍFICA:</div>
+<div>
+                Clasifica los siguientes antónimos según su tipo:<br/><br/>
+
+                1. Comprar / Vender → <span class="answer-space long-answer"></span><br/>
+                2. Vivo / Muerto → <span class="answer-space long-answer"></span><br/>
+                3. Grande / Pequeño → <span class="answer-space long-answer"></span><br/>
+                4. Entrar / Salir → <span class="answer-space long-answer"></span><br/>
+                5. Presente / Ausente → <span class="answer-space long-answer"></span>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 4: ORTOGRAFÍA Y FONÉTICA AVANZADA -->
+<div class="section">
+<div class="section-title">
+<span>ORTOGRAFÍA Y FONÉTICA AVANZADA</span>
+<span class="points">20 puntos</span>
+</div>
+<div class="question">
+<div class="question-number">A) DIPTONGOS E HIATOS - Análisis fonético completo:</div>
+<table class="complex-table">
+<tr>
+<th>Palabra</th>
+<th>Separación silábica</th>
+<th>Diptongo/Hiato</th>
+<th>Tipo de vocales</th>
+<th>Justificación</th>
+</tr>
+<tr>
+<td>Cuidadoso</td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+</tr>
+<tr>
+<td>Geografía</td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+</tr>
+<tr>
+<td>Huésped</td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+</tr>
+<tr>
+<td>Heroína</td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+</tr>
+</table>
+</div>
+<div class="question">
+<div class="question-number">B) REGLAS ORTOGRÁFICAS AVANZADAS:</div>
+<div>
+                Completa y explica la regla aplicada:<br/><br/>
+
+                1. Reci__imos (b/v) → <span class="answer-space"></span><br/>
+                Regla: <span class="answer-space extra-long"></span><br/><br/>
+
+                2. __ierba (h/-) → <span class="answer-space"></span><br/>
+                Regla: <span class="answer-space extra-long"></span><br/><br/>
+
+                3. Conser__ar (b/v) → <span class="answer-space"></span><br/>
+                Regla: <span class="answer-space extra-long"></span>
+</div>
+</div>
+<div class="challenge-box">
+<div class="challenge-title">🔥 DESAFÍO ORTOGRÁFICO</div>
+<div>
+                Corrige TODOS los errores ortográficos del siguiente texto y explica cada corrección:<br/><br/>
+
+                "Ayer fuimos haver una pelicula al cine. Mi hermano llevo su mochila con golosinas. Al salir, nos encontramos con nuestros amigos del colegio que tambien avian ido a ver la misma pelicula."<br/><br/>
+
+                Texto corregido:<br/>
+<span class="answer-space extra-long"></span><br/>
+<span class="answer-space extra-long"></span><br/><br/>
+
+                Errores encontrados y correcciones:<br/>
+                1. <span class="answer-space extra-long"></span><br/>
+                2. <span class="answer-space extra-long"></span><br/>
+                3. <span class="answer-space extra-long"></span><br/>
+                4. <span class="answer-space extra-long"></span>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 5: MORFOLOGÍA Y FORMACIÓN DE PALABRAS -->
+<div class="section">
+<div class="section-title">
+<span>MORFOLOGÍA Y FORMACIÓN DE PALABRAS</span>
+<span class="points">15 puntos</span>
+</div>
+<div class="question">
+<div class="question-number">A) ANÁLISIS MORFOLÓGICO COMPLETO de "rápidamente":</div>
+<div>
+                • Clase de palabra: <span class="answer-space long-answer"></span><br/>
+                • Tipo específico: <span class="answer-space long-answer"></span><br/>
+                • Palabra base: <span class="answer-space"></span><br/>
+                • Sufijo: <span class="answer-space"></span><br/>
+                • Proceso de formación: <span class="answer-space long-answer"></span><br/>
+                • Función sintáctica habitual: <span class="answer-space long-answer"></span>
+</div>
+</div>
+<div class="question">
+<div class="question-number">B) FAMILIA DE PALABRAS AVANZADA:</div>
+<div>
+                Crea la familia más completa posible de la raíz <strong>ESCRIB-</strong>:<br/><br/>
+
+                1. <span class="answer-space long-answer"></span><br/>
+                2. <span class="answer-space long-answer"></span><br/>
+                3. <span class="answer-space long-answer"></span><br/>
+                4. <span class="answer-space long-answer"></span><br/>
+                5. <span class="answer-space long-answer"></span><br/>
+                6. <span class="answer-space long-answer"></span><br/><br/>
+
+                Palabra INTRUSA (que NO pertenece a la familia):<br/>
+                Escribir - escritor - escritura - escribano - escrito - <strong>escriba</strong> - escritorio<br/><br/>
+
+                Intrusa: <span class="answer-space"></span><br/>
+                Justificación: <span class="answer-space extra-long"></span>
+</div>
+</div>
+<div class="question">
+<div class="question-number">C) GRADOS DEL ADJETIVO:</div>
+<div>
+                Completa la tabla con todas las formas:<br/><br/>
+<table class="complex-table">
+<tr>
+<th>Adjetivo base</th>
+<th>Grado positivo</th>
+<th>Comparativo superioridad</th>
+<th>Superlativo absoluto</th>
+<th>Superlativo relativo</th>
+</tr>
+<tr>
+<td>BUENO</td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+</tr>
+<tr>
+<td>INTELIGENTE</td>
+<td><span class="answer-space"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+<td><span class="answer-space long-answer"></span></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 6: COMPRENSIÓN Y EXPRESIÓN AVANZADA -->
+<div class="section">
+<div class="section-title">
+<span>COMPRENSIÓN Y EXPRESIÓN AVANZADA</span>
+<span class="points">15 puntos</span>
+</div>
+<div class="question">
+<div class="question-number">A) TRANSFORMACIONES SINTÁCTICAS:</div>
+<div>
+                Transforma las siguientes oraciones según se indica:<br/><br/>
+
+                1. "Los estudiantes leen libros interesantes" → Predicado Nominal<br/>
+<span class="answer-space extra-long"></span><br/><br/>
+
+                2. "María es muy inteligente" → Predicado Verbal<br/>
+<span class="answer-space extra-long"></span><br/><br/>
+
+                3. "Pedro regaló flores a su madre" → Voz pasiva<br/>
+<span class="answer-space extra-long"></span>
+</div>
+</div>
+<div class="question">
+<div class="question-number">B) CREACIÓN LITERARIA:</div>
+<div>
+                Escribe una estrofa de 4 versos que cumpla estas características:<br/>
+                • Arte menor (8 sílabas)<br/>
+                • Rima consonante ABBA<br/>
+                • Tema: la amistad<br/>
+                • Debe contener al menos una metáfora<br/><br/>
+<span class="answer-space extra-long"></span><br/>
+<span class="answer-space extra-long"></span><br/>
+<span class="answer-space extra-long"></span><br/>
+<span class="answer-space extra-long"></span><br/><br/>
+
+                Análisis de tu creación:<br/>
+                • Esquema de rima: <span class="answer-space"></span><br/>
+                • Metáfora utilizada: <span class="answer-space extra-long"></span><br/>
+                • Nombre de la estrofa: <span class="answer-space long-answer"></span>
+</div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 30px; padding: 25px; border: 4px solid #c0392b; border-radius: 15px; background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);">
+<h3 style="color: #c0392b; margin-bottom: 15px; font-size: 16pt;">🏆 REVISIÓN FINAL DE EXPERTO</h3>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; text-align: left; font-size: 10pt;">
+<div>
+<p><strong>✓ Análisis morfosintáctico:</strong> Todas las funciones identificadas</p>
+<p><strong>✓ Métrica:</strong> Sinalefas marcadas, cómputo correcto</p>
+<p><strong>✓ Figuras literarias:</strong> Identificadas y explicadas</p>
+<p><strong>✓ Relaciones semánticas:</strong> Clasificadas correctamente</p>
+</div>
+<div>
+<p><strong>✓ Ortografía:</strong> Reglas aplicadas y justificadas</p>
+<p><strong>✓ Diptongos/hiatos:</strong> Análisis fonético completo</p>
+<p><strong>✓ Morfología:</strong> Raíz y desinencia identificadas</p>
+<p><strong>✓ Creación:</strong> Requisitos métricos cumplidos</p>
+</div>
+</div>
+<p style="margin-top: 15px; font-weight: bold; color: #c0392b;">¡Has completado el nivel más avanzado! Revisa cada respuesta antes de entregar.</p>
+</div>
+</body>
+</html>

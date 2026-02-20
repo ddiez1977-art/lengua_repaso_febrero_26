@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Repaso Rápido - Examen Lengua 6º</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .quick-reference {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .reference-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: transform 0.2s ease;
+        }
+
+        .reference-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .examples-list {
+            background: #e8f5e8;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .examples-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .examples-list li {
+            margin: 6px 0;
+            padding-left: 15px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .examples-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .danger-zone {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .danger-zone .title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .step-by-step {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .step-by-step ol {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .step-by-step li {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Colores específicos */
+        .verbos { border-left-color: #e74c3c; }
+        .verbos .card-title { color: #e74c3c; }
+
+        .ortografia { border-left-color: #3498db; }
+        .ortografia .card-title { color: #3498db; }
+
+        .sintaxis { border-left-color: #2ecc71; }
+        .sintaxis .card-title { color: #2ecc71; }
+
+        .metrica { border-left-color: #9b59b6; }
+        .metrica .card-title { color: #9b59b6; }
+
+        .semantica { border-left-color: #f39c12; }
+        .semantica .card-title { color: #f39c12; }
+
+        .figuras { border-left-color: #1abc9c; }
+        .figuras .card-title { color: #1abc9c; }
+
+        .familias { border-left-color: #e67e22; }
+        .familias .card-title { color: #e67e22; }
+
+        .last-minute {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .last-minute h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .critical-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .critical-tip {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+
+        .critical-tip strong {
+            color: #e74c3c;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .quick-reference {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1><i class="fas fa-clock"></i> Repaso Rápido - Últimos 15 Minutos</h1>
+<p>Lo esencial para aprobar el examen de Lengua 6º</p>
+</div>
+<div class="quick-reference">
+<!-- Verbos - Lo más importante -->
+<div class="reference-card verbos">
+<div class="card-title">
+<i class="fas fa-running"></i> VERBOS - Imprescindible
+                </div>
+<div class="formula-box">
+                    Tiempos compuestos = HABER + participio
+                </div>
+<div class="examples-list">
+<strong>Análisis de verbo (7 datos):</strong>
+<ul>
+<li><strong>Infinitivo:</strong> cantar, comer, vivir</li>
+<li><strong>Persona:</strong> 1ª (yo), 2ª (tú), 3ª (él)</li>
+<li><strong>Número:</strong> singular/plural</li>
+<li><strong>Tiempo:</strong> presente, pasado, futuro</li>
+<li><strong>Modo:</strong> indicativo (casi siempre)</li>
+<li><strong>Raíz:</strong> cant-, com-, viv- (significado principal)</li>
+<li><strong>Desinencia:</strong> -amos, -ía, -irán (persona, número, tiempo, modo)</li>
+</ul>
+</div>
+<div class="examples-list">
+<strong>Raíz y Desinencia - Ejemplos:</strong>
+<ul>
+<li><strong>cantamos:</strong> cant- (raíz) + -amos (desinencia)</li>
+<li><strong>vivían:</strong> viv- (raíz) + -ían (desinencia)</li>
+<li><strong>escribió:</strong> escrib- (raíz) + -ió (desinencia)</li>
+</ul>
+</div>
+<div class="step-by-step">
+<strong>Cómo encontrar la raíz:</strong>
+<ol>
+<li>Toma el infinitivo (cantar, comer, vivir)</li>
+<li>Quita la terminación (-ar, -er, -ir)</li>
+<li>Lo que queda es la RAÍZ (cant-, com-, viv-)</li>
+<li>La DESINENCIA indica persona, número, tiempo, modo</li>
+</ol>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-exclamation-triangle"></i> ¡CUIDADO!</div>
+<strong>Verbos copulativos</strong> (ser, estar, parecer) llevan <strong>ATRIBUTO</strong>, nunca CD
+                </div>
+<div class="formula-box">
+                    VERBO = RAÍZ + DESINENCIA
+                </div>
+</div>
+<!-- Análisis Sintáctico -->
+<div class="reference-card sintaxis">
+<div class="card-title">
+<i class="fas fa-sitemap"></i> ANÁLISIS SINTÁCTICO
+                </div>
+<div class="step-by-step">
+<strong>Pasos obligatorios:</strong>
+<ol>
+<li><strong>Buscar el VERBO</strong> (núcleo del predicado)</li>
+<li><strong>Preguntar ¿QUIÉN?</strong> al verbo → SUJETO</li>
+<li><strong>Buscar complementos:</strong></li>
+</ol>
+</div>
+<div class="formula-box">
+                    CD: ¿Qué? | CI: ¿A quién? | CC: ¿Cuándo/Dónde/Cómo?
+                </div>
+<div class="examples-list">
+<strong>Ejemplo: "Pedro regaló flores a María ayer"</strong>
+<ul>
+<li>Verbo: regaló</li>
+<li>Sujeto: Pedro (¿quién regaló?)</li>
+<li>CD: flores (¿qué regaló?)</li>
+<li>CI: a María (¿a quién?)</li>
+<li>CC Tiempo: ayer (¿cuándo?)</li>
+</ul>
+</div>
+</div>
+<!-- Métrica - Fórmulas exactas -->
+<div class="reference-card metrica">
+<div class="card-title">
+<i class="fas fa-ruler"></i> MÉTRICA - Fórmulas
+                </div>
+<div class="formula-box">
+                    Aguda: +1 sílaba | Llana: =0 | Esdrújula: -1 sílaba
+                </div>
+<div class="step-by-step">
+<strong>Pasos para contar sílabas:</strong>
+<ol>
+<li>Separar sílabas normalmente</li>
+<li>Marcar SINALEFAS (vocal+vocal = 1 sílaba)</li>
+<li>Aplicar regla de acentuación final</li>
+<li>Arte menor ≤8 (a,b,c) | Arte mayor ≥9 (A,B,C)</li>
+</ol>
+</div>
+<div class="examples-list">
+<strong>Tipos de rima (desde vocal acentuada):</strong>
+<ul>
+<li><strong>Consonante:</strong> amor/dolor (-or)</li>
+<li><strong>Asonante:</strong> casa/rama (a-a)</li>
+</ul>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-exclamation-triangle"></i> Truco</div>
+                    La H no impide sinalefa: "la_hierba" = 1 sílaba
+                </div>
+</div>
+<!-- Ortografía - Reglas clave -->
+<div class="reference-card ortografia">
+<div class="card-title">
+<i class="fas fa-spell-check"></i> ORTOGRAFÍA - Reglas Clave
+                </div>
+<div class="examples-list">
+<strong>B/V - Reglas básicas:</strong>
+<ul>
+<li><strong>Con B:</strong> verbos -bir (escribir), hue- (huevo)</li>
+<li><strong>Con V:</strong> después de n (enviar), -ivo (positivo)</li>
+<li><strong>Con H:</strong> her- (herida), hie- (hierba)</li>
+</ul>
+</div>
+<div class="formula-box">
+                    TÚ (pronombre) = CON tilde | TU (determinante) = SIN tilde
+                </div>
+<div class="examples-list">
+<strong>DIPTONGO vs HIATO:</strong>
+<ul>
+<li><strong>DIPTONGO:</strong> 2 vocales en 1 sílaba (cielo, causa, ciudad)</li>
+<li><strong>HIATO:</strong> 2 vocales en sílabas separadas (país, María, poeta)</li>
+<li><strong>Vocales cerradas:</strong> i, u | <strong>Abiertas:</strong> a, e, o</li>
+<li><strong>Truco:</strong> Si i/u tiene tilde → HIATO seguro</li>
+</ul>
+</div>
+<div class="formula-box">
+                    Cerrada+Abierta = DIPTONGO | Abierta+Abierta = HIATO
+                </div>
+<div class="step-by-step">
+<strong>Reglas completas:</strong>
+<ol>
+<li><strong>Cerrada + Abierta:</strong> van juntas → DIPTONGO (tierra: tie-rra)</li>
+<li><strong>Abierta + Cerrada:</strong> van juntas → DIPTONGO (causa: cau-sa)</li>
+<li><strong>Cerrada + Cerrada:</strong> van juntas → DIPTONGO (ciudad: ciu-dad)</li>
+<li><strong>Abierta + Abierta:</strong> se separan → HIATO (poeta: po-e-ta)</li>
+<li><strong>Vocal cerrada CON tilde:</strong> se separa → HIATO (país: pa-ís)</li>
+</ol>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-bomb"></i> Palabras TRAMPA del examen</div>
+<strong>¡AY!</strong> (dolor) | <strong>HAY</strong> (cantidad) | <strong>AHÍ</strong> (lugar)<br/>
+<strong>HABER</strong> (auxiliar) | <strong>A VER</strong> (mirar)<br/>
+<strong>ECHO</strong> (echar) | <strong>HECHO</strong> (hacer)
+                </div>
+</div>
+<!-- Relaciones Semánticas -->
+<div class="reference-card semantica">
+<div class="card-title">
+<i class="fas fa-link"></i> RELACIONES SEMÁNTICAS
+                </div>
+<div class="examples-list">
+<strong>Tipos principales:</strong>
+<ul>
+<li><strong>Polisemia:</strong> 1 palabra, varios significados (banco: asiento/entidad)</li>
+<li><strong>Homógrafas:</strong> se escriben igual (vino: bebida/verbo)</li>
+<li><strong>Homófonas:</strong> suenan igual (asta/hasta)</li>
+<li><strong>Familias:</strong> misma raíz + significado relacionado</li>
+</ul>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-lightbulb"></i> Truco homógrafas</div>
+                    Casi siempre: una es VERBO y otra SUSTANTIVO
+                </div>
+<div class="formula-box">
+                    Antonimia: Gradual (caliente/frío) | Recíproca (comprar/vender) | Complementaria (vivo/muerto)
+                </div>
+</div>
+<!-- Figuras Literarias -->
+<div class="reference-card figuras">
+<div class="card-title">
+<i class="fas fa-magic"></i> FIGURAS LITERARIAS
+                </div>
+<div class="examples-list">
+<strong>Las 5 más importantes:</strong>
+<ul>
+<li><strong>Metáfora:</strong> "Sus ojos SON estrellas" (dice que ES)</li>
+<li><strong>Comparación:</strong> "Corre COMO el viento" (usa COMO)</li>
+<li><strong>Personificación:</strong> "El sol me saluda" (humano → objeto)</li>
+<li><strong>Hipérbole:</strong> "Te lo dije mil veces" (exageración)</li>
+<li><strong>Anáfora:</strong> "Por ti..., por ti..." (repetir al inicio)</li>
+</ul>
+</div>
+<div class="formula-box">
+                    Metáfora = ES | Comparación = COMO/PARECE
+                </div>
+</div>
+<!-- Morfología Completa -->
+<div class="reference-card morfologia">
+<div class="card-title">
+<i class="fas fa-puzzle-piece"></i> MORFOLOGÍA COMPLETA
+                </div>
+<div class="formula-box">
+                    CON nombre = Determinante | SIN nombre = Pronombre
+                </div>
+<div class="examples-list">
+<strong>Ejemplos clave:</strong>
+<ul>
+<li><strong>"Mi casa"</strong> → Mi = determinante (acompaña a "casa")</li>
+<li><strong>"El mío"</strong> → mío = pronombre (sustituye al nombre)</li>
+<li><strong>"Esa mesa"</strong> → Esa = determinante</li>
+<li><strong>"Ésa me gusta"</strong> → Ésa = pronombre</li>
+</ul>
+</div>
+<div class="step-by-step">
+<strong>Adverbios por tipos:</strong>
+<ul style="list-style: none; padding: 0;">
+<li><strong>Lugar:</strong> aquí, allí, encima, debajo</li>
+<li><strong>Tiempo:</strong> ayer, hoy, mañana, nunca</li>
+<li><strong>Modo:</strong> bien, mal, así, despacio</li>
+<li><strong>Cantidad:</strong> mucho, poco, bastante</li>
+<li><strong>Duda:</strong> quizá, acaso, tal vez</li>
+</ul>
+</div>
+</div>
+<!-- Predicado Nominal vs Verbal -->
+<div class="reference-card predicado">
+<div class="card-title">
+<i class="fas fa-balance-scale"></i> PREDICADO NOMINAL vs VERBAL
+                </div>
+<div class="formula-box">
+                    Verbo copulativo + ATRIBUTO = Predicado Nominal
+                </div>
+<div class="examples-list">
+<strong>Verbos copulativos:</strong>
+<ul>
+<li><strong>SER, ESTAR, PARECER</strong> → llevan ATRIBUTO</li>
+<li>"María ES inteligente" → inteligente = ATRIBUTO</li>
+<li>"El niño ESTÁ contento" → contento = ATRIBUTO</li>
+</ul>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-exclamation-triangle"></i> ¡CUIDADO!</div>
+                    Los verbos copulativos NUNCA llevan CD, siempre ATRIBUTO
+                </div>
+<div class="step-by-step">
+<strong>Resto de verbos:</strong>
+<ul style="list-style: none; padding: 0;">
+<li><strong>Predicado Verbal</strong> → pueden llevar CD, CI, CC</li>
+<li>"Pedro COME manzanas" → manzanas = CD</li>
+</ul>
+</div>
+</div>
+<!-- Hiperonimia y Acentuación -->
+<div class="reference-card hiperonimia">
+<div class="card-title">
+<i class="fas fa-sitemap"></i> HIPERONIMIA + ACENTUACIÓN
+                </div>
+<div class="formula-box">
+                    Hiperónimo (general) → Hipónimos (específicos)
+                </div>
+<div class="examples-list">
+<strong>Ejemplos de hiperonimia:</strong>
+<ul>
+<li><strong>FLOR</strong> (hiperónimo) → rosa, tulipán, margarita</li>
+<li><strong>ANIMAL</strong> (hiperónimo) → perro, gato, león</li>
+<li><strong>DEPORTE</strong> (hiperónimo) → fútbol, tenis, natación</li>
+</ul>
+</div>
+<div class="step-by-step">
+<strong>Reglas de acentuación:</strong>
+<ol>
+<li><strong>Agudas:</strong> última sílaba (café, ratón)</li>
+<li><strong>Llanas:</strong> penúltima sílaba (mesa, árbol)</li>
+<li><strong>Esdrújulas:</strong> antepenúltima (médico, pájaro)</li>
+</ol>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-lightbulb"></i> Regla práctica</div>
+<strong>Esdrújulas:</strong> SIEMPRE llevan tilde
+                </div>
+</div>
+<!-- Estrofas -->
+<div class="reference-card estrofas">
+<div class="card-title">
+<i class="fas fa-layer-group"></i> ESTROFAS BÁSICAS
+                </div>
+<div class="examples-list">
+<strong>Las más importantes:</strong>
+<ul>
+<li><strong>Pareado:</strong> 2 versos (AA)</li>
+<li><strong>Terceto:</strong> 3 versos (ABA)</li>
+<li><strong>Cuarteto:</strong> 4 versos arte mayor (ABBA)</li>
+<li><strong>Redondilla:</strong> 4 versos arte menor (abba)</li>
+<li><strong>Lira:</strong> 5 versos (7a 11B 7a 7b 11B)</li>
+<li><strong>Octava Real:</strong> 8 versos (ABABABCC)</li>
+</ul>
+</div>
+<div class="formula-box">
+                    Arte menor ≤8 (a,b,c) | Arte mayor ≥9 (A,B,C)
+                </div>
+</div>
+<!-- Familias de Palabras -->
+<div class="reference-card familias">
+<div class="card-title">
+<i class="fas fa-sitemap"></i> FAMILIAS DE PALABRAS
+                </div>
+<div class="formula-box">
+                    Misma RAÍZ + significado relacionado
+                </div>
+<div class="examples-list">
+<strong>Ejemplos clave:</strong>
+<ul>
+<li><strong>PAN:</strong> pan, panadero, panadería, empanar</li>
+<li><strong>MAR:</strong> mar, marinero, marítimo, marea</li>
+<li><strong>FLOR:</strong> flor, florero, florecer, florista</li>
+<li><strong>LUZ:</strong> luz, luminoso, iluminar, relucir</li>
+</ul>
+</div>
+<div class="danger-zone">
+<div class="title"><i class="fas fa-exclamation-triangle"></i> Truco</div>
+                    No basta compartir letras, debe haber relación de significado
+                </div>
+</div>
+</div>
+<div class="last-minute">
+<h2><i class="fas fa-stopwatch"></i> Últimos 5 Minutos - Repaso Express</h2>
+<div class="critical-tips">
+<div class="critical-tip">
+<strong>Análisis sintáctico</strong>
+                    1º Verbo → 2º Sujeto → 3º Complementos
+                </div>
+<div class="critical-tip">
+<strong>Métrica</strong>
+                    Aguda +1, Llana =0, Esdrújula -1
+                </div>
+<div class="critical-tip">
+<strong>Verbos compuestos</strong>
+                    HABER + participio (he cantado)
+                </div>
+<div class="critical-tip">
+<strong>Tilde diacrítica</strong>
+                    TÚ (pronombre) vs TU (determinante)
+                </div>
+<div class="critical-tip">
+<strong>Trampa AY/HAY/AHÍ</strong>
+                    "En ahí HAY un niño que dice ¡AY!"
+                </div>
+<div class="critical-tip">
+<strong>Figuras literarias</strong>
+                    Metáfora = ES, Comparación = COMO
+                </div>
+<div class="critical-tip">
+<strong>Diptongo vs Hiato</strong>
+                    Si i/u tiene tilde → HIATO seguro
+                </div>
+<div class="critical-tip">
+<strong>Familias de palabras</strong>
+                    Misma raíz + significado relacionado
+                </div>
+<div class="critical-tip">
+<strong>Raíz y desinencia</strong>
+                    VERBO = RAÍZ + DESINENCIA
+                </div>
+<div class="critical-tip">
+<strong>En el examen</strong>
+                    Lee TODO antes de empezar
+                </div>
+</div>
+</div>
+</div>
+</body>
+</html>

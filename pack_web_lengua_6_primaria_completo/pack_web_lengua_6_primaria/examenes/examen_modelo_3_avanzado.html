@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Examen Modelo 3 - Lengua 6º Primaria (Nivel Avanzado)</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .exam-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #8e44ad;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f4f1f8;
+            border-radius: 5px;
+        }
+
+        .info-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-field label {
+            font-weight: bold;
+            min-width: 80px;
+        }
+
+        .info-field input {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #8e44ad;
+            background: transparent;
+            font-size: 1rem;
+        }
+
+        .instructions {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .instructions h3 {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: #8e44ad;
+            color: white;
+            padding: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #8e44ad;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .question-text {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .option {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option input[type="radio"] {
+            transform: scale(1.2);
+        }
+
+        .text-input {
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 250px;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #8e44ad;
+        }
+
+        .long-input {
+            width: 400px;
+        }
+
+        .textarea-input {
+            width: 100%;
+            min-height: 80px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .textarea-input:focus {
+            outline: none;
+            border-color: #8e44ad;
+        }
+
+        .poem-box {
+            background: #f1f2f6;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            text-align: center;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .analysis-table th,
+        .analysis-table td {
+            border: 2px solid #bdc3c7;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .analysis-table th {
+            background: #f4f1f8;
+            font-weight: bold;
+        }
+
+        .analysis-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-size: 1rem;
+            padding: 8px;
+        }
+
+        .sentence-analysis {
+            background: #fff;
+            border: 2px solid #8e44ad;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .underline-space {
+            display: inline-block;
+            border-bottom: 2px solid #333;
+            min-width: 150px;
+            margin: 0 8px;
+        }
+
+        .error-text {
+            background: #ffcdd2;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .complex-exercise {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .advanced-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .creative-section {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: #f4f1f8;
+            border-radius: 5px;
+            color: #7f8c8d;
+        }
+
+        .difficulty-indicator {
+            background: #8e44ad;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .exam-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="exam-container">
+<div class="header">
+<h1>EXAMEN DE LENGUA ESPAÑOLA</h1>
+<div class="subtitle">6º Curso de Educación Primaria</div>
+<div class="subtitle"><strong>MODELO 3 - NIVEL AVANZADO</strong></div>
+</div>
+<div class="student-info">
+<div class="info-field">
+<label>Nombre:</label>
+<input placeholder="Escribe tu nombre completo" type="text"/>
+</div>
+<div class="info-field">
+<label>Curso:</label>
+<input placeholder="6º" type="text"/>
+</div>
+<div class="info-field">
+<label>Fecha:</label>
+<input placeholder="___/___/2026" type="text"/>
+</div>
+<div class="info-field">
+<label>Nota:</label>
+<input placeholder="____/10" type="text"/>
+</div>
+</div>
+<div class="instructions">
+<h3>🔥 INSTRUCCIONES - NIVEL AVANZADO</h3>
+<ul>
+<li>Este examen requiere análisis profundo y justificación detallada</li>
+<li>Se valorará la creatividad y el pensamiento crítico</li>
+<li>Cuida especialmente la ortografía, gramática y expresión</li>
+<li>Tiempo estimado: 90 minutos</li>
+<li>Puntuación total: 10 puntos</li>
+</ul>
+</div>
+<!-- SECCIÓN 1: ORTOGRAFÍA Y ANÁLISIS CRÍTICO -->
+<div class="section">
+<div class="section-header">
+                📝 SECCIÓN 1: ORTOGRAFÍA Y ANÁLISIS CRÍTICO (2,5 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">1. (1 punto)</div>
+<div class="question-text">Corrige este texto y explica las reglas ortográficas aplicadas:</div>
+<div class="complex-exercise">
+                        Mi <span class="error-text">ermana</span> <span class="error-text">bive</span> en una casa <span class="error-text">ermosa</span>. <span class="error-text">Escrivio</span> una carta a su <span class="error-text">abuela</span> y la <span class="error-text">echo</span> al buzón. Después fue <span class="error-text">haber</span> una película con sus amigas.
+                    </div>
+<p><strong>Texto corregido:</strong></p>
+<textarea class="textarea-input" placeholder="Escribe aquí el texto completo corregido..."></textarea>
+<p><strong>Explica 3 reglas ortográficas que has aplicado:</strong></p>
+<p>1. <input class="long-input" placeholder="Palabras con H inicial: hermana, hermosa..." type="text"/></p>
+<p>2. <input class="long-input" placeholder="Verbos terminados en -bir: escribir (excepción: vivir)" type="text"/></p>
+<p>3. <input class="long-input" placeholder="Hecho (participio) vs echo (verbo echar)" type="text"/></p>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">2. (1,5 puntos)</div>
+<div class="question-text">Análisis completo de palabras trampa - Crea oraciones:</div>
+<div class="advanced-box">
+<p><strong>Crea una oración que contenga correctamente las tres palabras: ay, hay, ahí</strong></p>
+<textarea class="textarea-input" placeholder="Ejemplo: ¡Ay! Hay un niño ahí que se ha caído."></textarea>
+<p><strong>Explica la diferencia entre "haber" y "a ver" con ejemplos propios:</strong></p>
+<textarea class="textarea-input" placeholder="HABER es verbo auxiliar (Debe haber comida). A VER es preposición + verbo ver (Vamos a ver qué pasa)."></textarea>
+<p><strong>Crea dos oraciones con "valla", "vaya" y "baya":</strong></p>
+<p>1. <input class="long-input" placeholder="El atleta saltó la valla." type="text"/></p>
+<p>2. <input class="long-input" placeholder="Espero que le vaya bien. Comí una baya." type="text"/></p>
+</div>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 2: MORFOLOGÍA Y SINTAXIS INTEGRADAS -->
+<div class="section">
+<div class="section-header">
+                🔤 SECCIÓN 2: MORFOLOGÍA Y SINTAXIS INTEGRADAS (3 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">3. (1,5 puntos)</div>
+<div class="question-text">Análisis morfosintáctico completo:</div>
+<div class="sentence-analysis">
+<strong>Oración:</strong> "Los estudiantes inteligentes de mi clase escribieron cartas emotivas a sus abuelos queridos ayer por la tarde en el aula."
+                    </div>
+<table class="analysis-table">
+<tr>
+<th>Elemento</th>
+<th>Función Sintáctica</th>
+<th>Categoría Morfológica</th>
+<th>Características</th>
+</tr>
+<tr>
+<td>Los estudiantes inteligentes de mi clase</td>
+<td><input class="analysis-input" placeholder="Sujeto" type="text"/></td>
+<td><input class="analysis-input" placeholder="SN" type="text"/></td>
+<td><input class="analysis-input" placeholder="Det+N+Adj+Complemento" type="text"/></td>
+</tr>
+<tr>
+<td>escribieron</td>
+<td><input class="analysis-input" placeholder="Núcleo del predicado" type="text"/></td>
+<td><input class="analysis-input" placeholder="Verbo" type="text"/></td>
+<td><input class="analysis-input" placeholder="3ª pers. plural, pret. indefinido" type="text"/></td>
+</tr>
+<tr>
+<td>cartas emotivas</td>
+<td><input class="analysis-input" placeholder="CD" type="text"/></td>
+<td><input class="analysis-input" placeholder="SN" type="text"/></td>
+<td><input class="analysis-input" placeholder="N+Adj" type="text"/></td>
+</tr>
+<tr>
+<td>a sus abuelos queridos</td>
+<td><input class="analysis-input" placeholder="CI" type="text"/></td>
+<td><input class="analysis-input" placeholder="SPrep" type="text"/></td>
+<td><input class="analysis-input" placeholder="Prep+Det+N+Adj" type="text"/></td>
+</tr>
+</table>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">4. (1 punto)</div>
+<div class="question-text">Diferenciación avanzada: Pronombres vs Determinantes</div>
+<div class="advanced-box">
+<p><strong>Explica la regla general y crea ejemplos:</strong></p>
+<p>Regla: <input class="long-input" placeholder="CON nombre = determinante, SIN nombre = pronombre" type="text"/></p>
+<p><strong>Transforma estas oraciones cambiando determinantes por pronombres:</strong></p>
+<p>a) "Mi casa es grande" → <input class="long-input" placeholder="La mía es grande" type="text"/></p>
+<p>b) "Esa bicicleta es roja" → <input class="long-input" placeholder="Ésa es roja" type="text"/></p>
+<p><strong>¿Por qué "mía" y "ésa" llevan tilde en los ejemplos anteriores?</strong></p>
+<textarea class="textarea-input" placeholder="Llevan tilde diacrítica para distinguirse de los determinantes cuando funcionan como pronombres."></textarea>
+</div>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">5. (0,5 puntos)</div>
+<div class="question-text">Análisis avanzado de raíz y desinencia:</div>
+<div class="advanced-box">
+<p><strong>Analiza estos verbos y explica qué información aporta cada desinencia:</strong></p>
+<p>a) "escribíamos" → Raíz: <input class="text-input" placeholder="escrib-" type="text"/> | Desinencia: <input class="text-input" placeholder="-íamos" type="text"/></p>
+<p>Información de la desinencia: <input class="long-input" placeholder="1ª persona plural pretérito imperfecto indicativo" type="text"/></p>
+<p>b) "correrán" → Raíz: <input class="text-input" placeholder="corr-" type="text"/> | Desinencia: <input class="text-input" placeholder="-erán" type="text"/></p>
+<p>Información de la desinencia: <input class="long-input" placeholder="3ª persona plural futuro indicativo" type="text"/></p>
+<p><strong>¿Qué tienen en común "correr", "corrió", "corremos" y "corrían"?</strong></p>
+<textarea class="textarea-input" placeholder="Comparten la misma raíz 'corr-' que contiene el significado básico de la acción de correr. Solo cambian las desinencias que indican diferentes personas, números, tiempos y modos."></textarea>
+</div>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">6. (0,5 puntos)</div>
+<div class="question-text">Análisis de verbos copulativos vs predicativos:</div>
+<p>Explica por qué "María está cansada" tiene predicado nominal y "María está en casa" tiene predicado verbal:</p>
+<textarea class="textarea-input" placeholder="En 'María está cansada', 'cansada' es ATRIBUTO (cualidad del sujeto). En 'María está en casa', 'en casa' es CC de lugar, no atributo."></textarea>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 3: MÉTRICA Y ANÁLISIS LITERARIO -->
+<div class="section">
+<div class="section-header">
+                🎭 SECCIÓN 3: MÉTRICA Y ANÁLISIS LITERARIO (2 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">7. (1,5 puntos)</div>
+<div class="question-text">Análisis métrico completo y creación:</div>
+<div class="poem-box">
+                        "En el silencio de la noche estrellada" (A)<br/>
+                        "susurra el viento melodías" (B)<br/>
+                        "mientras la luna enamorada" (A)<br/>
+                        "ilumina nuestras fantasías" (B)
+                    </div>
+<p><strong>Análisis métrico detallado:</strong></p>
+<table class="analysis-table">
+<tr>
+<th>Verso</th>
+<th>División silábica</th>
+<th>Sílabas métricas</th>
+<th>Sinalefas</th>
+<th>Tipo de palabra final</th>
+</tr>
+<tr>
+<td>1</td>
+<td><input class="analysis-input" placeholder="En-el-si-len-cio-de-la-no-che_es-tre-lla-da" type="text"/></td>
+<td><input class="analysis-input" placeholder="12" type="text"/></td>
+<td><input class="analysis-input" placeholder="che_es" type="text"/></td>
+<td><input class="analysis-input" placeholder="llana" type="text"/></td>
+</tr>
+<tr>
+<td>2</td>
+<td><input class="analysis-input" placeholder="su-su-rra_el-vien-to-me-lo-dí-as" type="text"/></td>
+<td><input class="analysis-input" placeholder="9" type="text"/></td>
+<td><input class="analysis-input" placeholder="rra_el" type="text"/></td>
+<td><input class="analysis-input" placeholder="llana" type="text"/></td>
+</tr>
+</table>
+<p><strong>Tipo de estrofa:</strong> <input class="text-input" placeholder="Cuarteta asonante" type="text"/></p>
+<p><strong>Esquema de rima:</strong> <input class="text-input" placeholder="ABAB" type="text"/></p>
+<p><strong>Crea un verso que rime con "estrellada":</strong></p>
+<input class="long-input" placeholder="en la pradera encantada" type="text"/>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">8. (0,5 puntos)</div>
+<div class="question-text">Análisis de figuras literarias complejas:</div>
+<p>En el verso "susurra el viento melodías", identifica y explica las figuras literarias:</p>
+<p>Figura 1: <input class="text-input" placeholder="Personificación" type="text"/></p>
+<p>Explicación: <input class="long-input" placeholder="El viento no puede susurrar, es una acción humana" type="text"/></p>
+<p>Figura 2: <input class="text-input" placeholder="Metáfora" type="text"/></p>
+<p>Explicación: <input class="long-input" placeholder="Los sonidos del viento son melodías" type="text"/></p>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 4: SEMÁNTICA AVANZADA Y CREATIVIDAD -->
+<div class="section">
+<div class="section-header">
+                💭 SECCIÓN 4: SEMÁNTICA AVANZADA Y CREATIVIDAD (2,5 puntos)
+            </div>
+<div class="section-content">
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">9. (1 punto)</div>
+<div class="question-text">Análisis semántico complejo:</div>
+<div class="creative-section">
+<p><strong>a) Explica la diferencia entre polisemia y homonimia con ejemplos propios:</strong></p>
+<textarea class="textarea-input" placeholder="POLISEMIA: Una palabra con significados relacionados (ej: ratón = animal/dispositivo). HOMONIMIA: Palabras diferentes que coinciden en forma (ej: vino = bebida/verbo venir)."></textarea>
+<p><strong>b) Clasifica y justifica:</strong></p>
+<p>• "banco" (asiento/entidad financiera): <input class="text-input" placeholder="polisemia" type="text"/></p>
+<p>Justificación: <input class="long-input" placeholder="Significados relacionados por la idea de 'lugar donde se deposita algo'" type="text"/></p>
+<p>• "llama" (animal/fuego): <input class="text-input" placeholder="homonimia" type="text"/></p>
+<p>Justificación: <input class="long-input" placeholder="Significados completamente diferentes, sin relación" type="text"/></p>
+</div>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">10. (1 punto)</div>
+<div class="question-text">Familias de palabras - Análisis y creación:</div>
+<div class="advanced-box">
+<p><strong>a) Analiza esta familia y encuentra el error:</strong></p>
+<p>Familia de "sol": solar, soleado, soldado, asolearse</p>
+<p>Palabra incorrecta: <input class="text-input" placeholder="soldado" type="text"/></p>
+<p>Razón detallada: <input class="long-input" placeholder="'Soldado' viene de 'sueldo', no tiene relación semántica con 'sol'" type="text"/></p>
+<p><strong>b) Crea una familia completa de "tiempo" (mínimo 5 palabras):</strong></p>
+<textarea class="textarea-input" placeholder="tiempo, temporal, temporada, contemporáneo, intemporal, temprano..."></textarea>
+<p><strong>c) Explica qué es la raíz y identifícala en tu familia:</strong></p>
+<p>Definición de raíz: <input class="long-input" placeholder="Parte común que contiene el significado básico" type="text"/></p>
+<p>Raíz de tu familia: <input class="text-input" placeholder="temp-" type="text"/></p>
+</div>
+</div>
+<div class="question">
+<div class="difficulty-indicator">AVANZADO</div>
+<div class="question-number">11. (0,5 puntos)</div>
+<div class="question-text">Creación y análisis de antonimia:</div>
+<p>Explica los tres tipos de antonimia con ejemplos originales:</p>
+<p><strong>Gradual:</strong> <input class="long-input" placeholder="caliente/frío (hay grados intermedios: tibio, templado)" type="text"/></p>
+<p><strong>Complementaria:</strong> <input class="long-input" placeholder="vivo/muerto (no hay términos medios)" type="text"/></p>
+<p><strong>Recíproca:</strong> <input class="long-input" placeholder="comprar/vender (uno implica el otro)" type="text"/></p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p><strong>🏆 ¡ENHORABUENA POR COMPLETAR EL NIVEL AVANZADO!</strong></p>
+<p>Este examen evalúa tu dominio completo de la lengua española a nivel de 6º primaria.</p>
+<p>Revisa especialmente las justificaciones y explicaciones - son clave en este nivel.</p>
+</div>
+</div>
+</body>
+</html>
